@@ -119,6 +119,7 @@
       <excludeFolder url="file://$MODULE_DIR$/StonksPizza/vendor/ramsey/uuid" />
       <excludeFolder url="file://$MODULE_DIR$/StonksPizza/vendor/graham-campbell/result-type" />
       <excludeFolder url="file://$MODULE_DIR$/StonksPizza/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/StonksPizza/vendor/laravel/breeze" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

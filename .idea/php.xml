@@ -113,6 +113,7 @@
       <path value="$PROJECT_DIR$/StonksPizza/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/StonksPizza/vendor/graham-campbell/result-type" />
       <path value="$PROJECT_DIR$/StonksPizza/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/StonksPizza/vendor/laravel/breeze" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
