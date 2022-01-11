@@ -15,9 +15,9 @@ class CreateVooraadTable extends Migration
     {
         Schema::create('vooraad', function (Blueprint $table) {
             $table->id();
-            $table->string('ingredient-naam',)->nullable();
-            $table->integer('aantal op vooraad',)->nullable();
-            $table->double('prijs',)->nullable();
+            $table->string('naam')->nullable();
+            $table->integer('aantal op vooraad')->nullable();
+            $table->double('prijs')->nullable();
             $table->timestamps();
         });
     }
