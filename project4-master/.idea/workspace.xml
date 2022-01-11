@@ -4,6 +4,9 @@
     <list default="true" id="5e4e2abf-e60c-4268-a4ee-7f9a46ff5327" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project4-master/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/project4-master/app/Http/Controllers/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project4-master/database/seeders/Vooraad.php" beforeDir="false" afterPath="$PROJECT_DIR$/project4-master/database/seeders/Vooraad.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project4-master/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/project4-master/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +159,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641819268823</updated>
       <workItem from="1641819269987" duration="714000" />
-      <workItem from="1641886095493" duration="1578000" />
+      <workItem from="1641886095493" duration="3294000" />
     </task>
     <servers />
   </component>

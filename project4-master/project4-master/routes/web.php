@@ -34,6 +34,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('user', UserController::class);
     Route::resource('employee', EmployeeController::class);
     Route::resource('customer', CustomerController::class);
+
 });
 
 

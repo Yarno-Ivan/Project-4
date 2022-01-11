@@ -24,25 +24,25 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    // public function dashboard(){
-    //     return view('dashboard');
-    // }
+     public function dashboard(){
+         return view('dashboard');
+     }
 
-    // public function role(){
-    //     return view('role.index', ['roles' => Role::all()]);
-    // }
+     public function role(){
+         return view('role.index', ['roles' => Role::all()]);
+     }
 
-    // public function user(){
-    //     return view('user.index', ['users' => User::all()]);
-    // }
+     public function user(){
+         return view('user.index', ['users' => User::all()]);
+     }
 
-    // public function employee(){
-    //     return view('employee.index', ['employees' => Employee::all()]);
-    // }
+     public function employee(){
+         return view('employee.index', ['employees' => Employee::all()]);
+     }
 
-    // public function customer(){
-    //     return view('customer.index', ['customers' => Customer::all()]);
-    // }
+     public function customer(){
+         return view('customer.index', ['customers' => Customer::all()]);
+     }
 
     public function resetpassword($id){
         $user = User::find($id);
