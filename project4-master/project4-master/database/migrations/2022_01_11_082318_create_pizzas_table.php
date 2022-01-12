@@ -18,7 +18,6 @@ class CreatePizzasTable extends Migration
             $table->string('naam')->nullable();
             $table->string('info')->nullable();
             $table->double('prijs')->nullable();
-            $table->binary('foto')->nullable();
             $table->timestamps();
         });
     }

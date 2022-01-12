@@ -7,6 +7,31 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="3" FontSize="40" VerticalAlignment="Center" TextAlignment="Center">Log in</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="3" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center">Naam :</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="3" FontSize="20" VerticalAlignment="Bottom" HorizontalAlignment="Center"><Run Text="Wachtwoord"/><Run Text=" "/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="TbNaam" Grid.Row="3" Grid.Column="3" FontSize="20" TextAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <TextBox x:Name="TbWachtwoord" Grid.Row="5" Grid.Column="3" FontSize="20" TextAlignment="Center" VerticalAlignment="Center"></TextBox>
+        <Button x:Name="BtLogin" Grid.Row="6" Grid.Column="3" FontSize="25" Height="40px" Width="100px" Click="BtLogin_Click">Login</Button>
+        <Button x:Name="BtRegristeren" Grid.Row="6" Grid.Column="5" FontSize="25" Height="40px" Width="150px" >Registreren</Button>
     </Grid>
 </Window>
