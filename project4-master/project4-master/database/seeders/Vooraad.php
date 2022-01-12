@@ -3,7 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 class Vooraad extends Seeder
 {
     /**
@@ -13,12 +14,13 @@ class Vooraad extends Seeder
      */
     public function run()
     {
-        Vooraad::create([
-            'name' => 'the baby girl song',
-            'year' => '1970',
-            'times_sold' => '145',
+        DB::table('vooraad')->insert([
+            'naam' => 'kaas',
+            'aantal op vooraad' => '100',
+            'prijs' => '10.20',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::tomorrow()
-            ]);
+        ]);
     }
 }
+
