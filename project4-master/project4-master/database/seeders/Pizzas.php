@@ -14,10 +14,18 @@ class Pizzas extends Seeder
      */
     public function run()
     {
+<<<<<<< Updated upstream
         DB::table('Pizzas')->insert([
             'naam' => 'Magaritha',
             'info' => 'geen',
             'prijs' => '10',
+=======
+        DB::table('pizzas')->insert([
+            'naam' => 'Magaritha',
+            'info' => 'geen',
+            'prijs' => '10',
+            'foto' => '',
+>>>>>>> Stashed changes
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::tomorrow(),
         ]);

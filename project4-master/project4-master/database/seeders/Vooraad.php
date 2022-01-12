@@ -13,12 +13,12 @@ class Vooraad extends Seeder
      */
     public function run()
     {
-        DB::table('vooraad')->insert([
+        Vooraad::create([
             'name' => 'the baby girl song',
             'year' => '1970',
             'times_sold' => '145',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::tomorrow()
-        ]);
+            ]);
     }
 }

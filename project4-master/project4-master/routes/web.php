@@ -22,7 +22,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/index', function () {
+    return view('customers.index');
+});
+Route::get('/', function () {
+    return view('guests.index');
+});
+Route::get('/menu', function () {
+    return view('guests.menu');
+});
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
@@ -34,7 +42,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::resource('user', UserController::class);
     Route::resource('employee', EmployeeController::class);
     Route::resource('customer', CustomerController::class);
-
 });
 
 

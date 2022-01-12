@@ -14,10 +14,17 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+<<<<<<< Updated upstream
             AdminUserSeeder::class,
             UserSeeder::class,
             RoleSeeder::class,
             UserRoleSeeder::class,
+=======
+            //AdminUserSeeder::class,
+            //UserSeeder::class,
+            //RoleSeeder::class,
+            //UserRoleSeeder::class,
+>>>>>>> Stashed changes
             Pizzas::class,
         ]);
         // \App\Models\User::factory(10)->create();
