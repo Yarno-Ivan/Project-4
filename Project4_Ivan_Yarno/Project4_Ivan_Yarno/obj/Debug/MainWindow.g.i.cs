@@ -64,14 +64,6 @@ namespace Project4_Ivan_Yarno {
         #line default
         #line hidden
         
-        
-        #line 35 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button BtRegristeren;
-        
-        #line default
-        #line hidden
-        
         private bool _contentLoaded;
         
         /// <summary>
@@ -116,9 +108,6 @@ namespace Project4_Ivan_Yarno {
             
             #line default
             #line hidden
-            return;
-            case 4:
-            this.BtRegristeren = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;

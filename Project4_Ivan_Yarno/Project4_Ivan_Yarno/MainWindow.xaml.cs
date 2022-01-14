@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using BCrypt.Net;
+using Project4_Ivan_Yarno.Classes;
 
 namespace Project4_Ivan_Yarno
 {
@@ -22,34 +22,16 @@ namespace Project4_Ivan_Yarno
     /// </summary>
     public partial class MainWindow : Window
     {
-        MySqlConnection con = new MySqlConnection("Server=localhost;Database=opdr5_yarnostevens;Uid=root;Pwd=;sslmode=none");
-        MySqlCommand cmd;
-        MySqlDataReader dr;
+        DB Conn = new DB();
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
         }
         private void BtLogin_Click(object sender, RoutedEventArgs e)
         {
-            string user = TbNaam.Text;
-            string pass = TbWachtwoord.Text;
-            cmd = new MySqlCommand();
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM klantgegevens where naam='" + TbNaam.Text + "' AND wachtwoord='" + BCrypt.Net.BCrypt.Verify(TbWachtwoord.Text, pass) + "'";
-            dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                MessageBox.Show("Login sucess");
-                Registreren registreren = new Registreren();
-                registreren.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Fouten inlog gegevens, check uw naam en wachtwoord");
-            }
-            con.Close();
+            Login login = Conn.Inloggen(TbNaam.Text, TbWachtwoord.Text);
+            MessageBox.Show(login.ID.ToString(), login.Naam);
         }
     }
 }

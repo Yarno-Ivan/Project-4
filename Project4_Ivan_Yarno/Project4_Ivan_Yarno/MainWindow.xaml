@@ -32,6 +32,5 @@
         <TextBox x:Name="TbNaam" Grid.Row="3" Grid.Column="3" FontSize="20" TextAlignment="Center" VerticalAlignment="Center"></TextBox>
         <TextBox x:Name="TbWachtwoord" Grid.Row="5" Grid.Column="3" FontSize="20" TextAlignment="Center" VerticalAlignment="Center"></TextBox>
         <Button x:Name="BtLogin" Grid.Row="6" Grid.Column="3" FontSize="25" Height="40px" Width="100px" Click="BtLogin_Click">Login</Button>
-        <Button x:Name="BtRegristeren" Grid.Row="6" Grid.Column="5" FontSize="25" Height="40px" Width="150px" >Registreren</Button>
     </Grid>
 </Window>

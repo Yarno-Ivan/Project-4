@@ -101,6 +101,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Login.cs" />
     <Compile Include="Registreren.xaml.cs">
       <DependentUpon>Registreren.xaml</DependentUpon>
     </Compile>
