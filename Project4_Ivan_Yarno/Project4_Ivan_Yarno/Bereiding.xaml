@@ -32,7 +32,7 @@
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="LvOrders" Grid.Row="2" Grid.Column="2" Grid.RowSpan="5" ItemsSource="{Binding Order}" BorderThickness="2" BorderBrush="Black">
+        <ListView x:Name="LvOrders" Grid.Row="2" Grid.Column="2" Grid.RowSpan="5" ItemsSource="{Binding Order}" SelectedItem="{Binding SelectedOrder, UpdateSourceTrigger=PropertyChanged}" BorderThickness="2" BorderBrush="Black" SelectionChanged="SCorders">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -47,8 +47,20 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="5" x:Name="pizzas" ItemsSource="{Binding Pizza}" BorderThickness="2" BorderBrush="Black">
-            
+        <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="5" x:Name="LvPizzas" ItemsSource="{Binding Pizza}" BorderThickness="2" BorderBrush="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{} {0} {1}">
+                                <Binding Path="PizzaNaam"/>
+                                <Binding Path="PizzaGrote"/>
+
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <ListView Grid.Row="2" Grid.Column="6" Grid.RowSpan="5" x:Name="ingredienten" ItemsSource="{Binding Ingredienten}" BorderThickness="2" BorderBrush="Black">
             

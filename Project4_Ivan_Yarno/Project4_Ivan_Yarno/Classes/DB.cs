@@ -82,6 +82,33 @@ namespace Project4_Ivan_Yarno.Classes
             }
             return ocReturn;
         }
+        public ObservableCollection<OrderdPizza> PizzaLoad(string Idorder)
+        {
+            ObservableCollection<OrderdPizza> ocReturnpizza = new ObservableCollection<OrderdPizza>();
+            DataTable DtPizza = new DataTable();
+            using (MySqlConnection con = new MySqlConnection(conn))
+            {
+                con.Open();
+                MySqlCommand command = con.CreateCommand();
+                command.CommandText = "SELECT * FROM orderdpizzas WHERE bestelling_id = @Id";
+
+                command.Parameters.AddWithValue("@Id", Idorder);
+
+                MySqlDataReader reader = command.ExecuteReader();
+                DtPizza.Load(reader);
+            }
+            foreach (DataRow row in DtPizza.Rows)
+            {
+                OrderdPizza pizza = new OrderdPizza();
+                pizza.ID = Convert.ToInt32(row["id"].ToString());
+                pizza.BestellingID = Convert.ToInt32(row["bestelling_id"].ToString());
+                pizza.PizzaNaam = row["naam"].ToString();
+                pizza.PizzaGrote = row["grote"].ToString();
+                pizza.ExtraOpmerking = row["extra-opmerking"].ToString();
+                ocReturnpizza.Add(pizza);
+            }
+            return ocReturnpizza;
+        }
 
     }
 }

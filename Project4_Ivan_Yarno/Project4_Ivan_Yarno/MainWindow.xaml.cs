@@ -63,6 +63,9 @@ namespace Project4_Ivan_Yarno
                         admin.Show();
                         this.Close();
                         break;
+                    default:
+                        MessageBox.Show("U heeft geen toegang tot dit systeem");
+                        break;
                 }
             }
             else
