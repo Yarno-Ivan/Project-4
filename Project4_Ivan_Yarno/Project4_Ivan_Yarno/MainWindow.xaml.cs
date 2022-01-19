@@ -30,42 +30,45 @@ namespace Project4_Ivan_Yarno
         }
         private void BtLogin_Click(object sender, RoutedEventArgs e)
         {
-            Login login = Conn.Inloggen(TbNaam.Text, TbWachtwoord.Text);
+            Login login = Conn.Inloggen(TbNaam.Text);
             MessageBox.Show(login.ID.ToString(), login.Naam);
-
-            Login loginroleid = Conn.GetRoleID(login.ID);
-            switch (loginroleid.RoleID)
+            bool PassBcrypt = BCrypt.Net.BCrypt.Verify(TbWachtwoord.Text, login.Wachtwoord);
+            if (PassBcrypt == true)
             {
-                case 2:
-                    Balie balie = new Balie();
-                    balie.Show();
-                    this.Close();
-                    break;
-                case 3 :
-                    Bereiding bereiding = new Bereiding();
-                    bereiding.Show();
-                    this.Close();
-                    break;
-                case 4:
-                    Bezorging bezorging = new Bezorging();
-                    bezorging.Show();
-                    this.Close();
-                    break;
-                case 5:
-                    management management = new management();
-                    management.Show();
-                    this.Close();
-                    break;
-                case 6:
-                    Admin admin = new Admin();
-                    admin.Show();
-                    this.Close();
-                    break;
-
-
-
+                Login loginroleid = Conn.GetRoleID(login.ID);
+                switch (loginroleid.RoleID)
+                {
+                    case 2:
+                        Balie balie = new Balie();
+                        balie.Show();
+                        this.Close();
+                        break;
+                    case 3:
+                        Bereiding bereiding = new Bereiding();
+                        bereiding.Show();
+                        this.Close();
+                        break;
+                    case 4:
+                        Bezorging bezorging = new Bezorging();
+                        bezorging.Show();
+                        this.Close();
+                        break;
+                    case 5:
+                        management management = new management();
+                        management.Show();
+                        this.Close();
+                        break;
+                    case 6:
+                        Admin admin = new Admin();
+                        admin.Show();
+                        this.Close();
+                        break;
+                }
             }
-
+            else
+            {
+                MessageBox.Show("wachtwoord of naam onjuist probeer opnieuw");
+            }
         }
     }
 }

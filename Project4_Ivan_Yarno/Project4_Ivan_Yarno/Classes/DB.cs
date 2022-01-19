@@ -15,7 +15,7 @@ namespace Project4_Ivan_Yarno.Classes
     {
         string conn = ConfigurationManager.ConnectionStrings["Conn"].ConnectionString;
 
-        public Login Inloggen(string naam, string wachtwoord)
+        public Login Inloggen(string naam)
         {
             Login login = new Login();
             DataTable DTinloggen = new DataTable();
@@ -23,9 +23,8 @@ namespace Project4_Ivan_Yarno.Classes
             {
                 con.Open();
                 MySqlCommand cmd = con.CreateCommand();
-                cmd.CommandText = "SELECT * FROM users WHERE name = @naam AND Password = @wachtwoord";
+                cmd.CommandText = "SELECT * FROM users WHERE name = @naam";
                 cmd.Parameters.AddWithValue("@naam", naam);
-                cmd.Parameters.AddWithValue("@wachtwoord",  wachtwoord);
                 MySqlDataReader read = cmd.ExecuteReader();
                 DTinloggen.Load(read);
 

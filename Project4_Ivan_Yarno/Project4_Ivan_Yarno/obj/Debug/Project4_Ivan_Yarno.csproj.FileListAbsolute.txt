@@ -43,3 +43,11 @@ C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Pro
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\bin\Debug\BCrypt.Net.xml
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Bereiding.g.cs
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Bereiding.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Admin.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Balie.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Bezorging.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\management.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Admin.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Balie.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Bezorging.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\management.baml
