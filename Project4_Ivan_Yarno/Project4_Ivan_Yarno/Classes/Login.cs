@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace Project4_Ivan_Yarno.Classes
 {
-    class Login
+    public class Login
     {
+        private int roleid;
         private int id;
         private string naam;
         private string wachtwoord;
 
+        public int RoleID
+        {
+            get { return roleid; }
+            set { roleid = value; }
+        }
         public string Wachtwoord
         {
             get { return wachtwoord; }

@@ -101,10 +101,42 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Balie.xaml.cs">
+      <DependentUpon>Balie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bereiding.xaml.cs">
+      <DependentUpon>Bereiding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bezorging.xaml.cs">
+      <DependentUpon>Bezorging.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\Order.cs" />
+    <Compile Include="management.xaml.cs">
+      <DependentUpon>management.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registreren.xaml.cs">
       <DependentUpon>Registreren.xaml</DependentUpon>
     </Compile>
+    <Page Include="Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Balie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Bereiding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Bezorging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -118,6 +150,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Registreren.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -152,6 +188,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pizza2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

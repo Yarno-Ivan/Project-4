@@ -41,3 +41,5 @@ C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Pro
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\bin\Debug\BCrypt.Net.dll
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\bin\Debug\BCrypt.Net.pdb
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\bin\Debug\BCrypt.Net.xml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Bereiding.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Bereiding.baml
