@@ -18,10 +18,10 @@ class CreatePizzaVooraad extends Migration
             $table->unsignedBigInteger('pizza_id')->index();
             $table->unsignedBigInteger('vooraad_id')->index();
 
-            $table->primary(['pizza_id', 'vooraad_id']);
             $table->foreign('pizza_id')->references('id')->on('pizzas');
             $table->foreign('vooraad_id')->references('id')->on('vooraad');
 
+            $table->primary(['pizza_id', 'vooraad_id']);
         });
     }
 

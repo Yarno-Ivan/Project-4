@@ -14,10 +14,15 @@ class CreateOrderdpizzasTable extends Migration
     public function up()
     {
         Schema::create('orderdpizzas', function (Blueprint $table) {
-            $table->id();
-            $table->integer('bestelling_id')->nullable();
-            $table->string('naam')->nullable();
-            $table->string('grote')->nullable();
+
+            $table->unsignedBigInteger('bestelling_id')->index();
+            $table->unsignedBigInteger('pizza_id')->index();
+
+
+            $table->foreign('bestelling_id')->references('id')->on('bestellingen');
+            $table->foreign('pizza_id')->references('id')->on('pizzas');
+
+            $table->primary(['bestelling_id', 'pizza_id']);
         });
     }
 
