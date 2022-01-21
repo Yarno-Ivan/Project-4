@@ -27,35 +27,17 @@
     </div>
   </div>
 </nav>
-<div class="font-bold text-3xl flex justify-center items-center ">Welkom op onze Pizza Menu pagina</div>
+<div class="font-bold text-3xl flex justify-center items-center ">Pas uw pizza {{ $pizzas->naam }} aan</div>
 </br>
-<div class="flex text-2xl font-bold py-2 px-4 flex-1 items-center flex justify-evenly">
-  <a>Pizzas</a>
-  <a>Info</a>
-  <a>Prijs</a>
-  <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
-  <div class="flex flex-row-reverse ml-2 w-full">
-    <div slot="icon" class="relative">
-        <svg onclick="window.location.href = '/betalen';" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart w-6 h-6 mt-2">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
-    </div>
-  </div>
- </div>
+<div >
+    <form action="{{ route('guests.update', $pizzas->id) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <checkbox>{{ $pizzas->naam }}</checkbox>
+        <input type="text" name="naam" id="naam" required value="{{ $pizzas->naam }}">
+        <button  type="submit">aanpassen</button>
+    </form>
 </div>
-</br>
-@foreach ($pizzas as $pizza)
-<div>
-  <form class="flex justify-evenly items-center flex-1 ">
-    <a>{{$pizza->naam}}</a>  
-    <a>{{$pizza->info}}</a> 
-    <a>{{$pizza->prijs}}</a>
-    <a href="/menu/{{$pizza->id}}/edit">Aanpassen</a>
-  </form>
-</div>
-@endforeach
 </body>
 </html>
 

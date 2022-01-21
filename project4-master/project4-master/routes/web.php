@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PizzasController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -28,9 +29,14 @@ Route::get('/index', function () {
 Route::get('/', function () {
     return view('guests.index');
 });
-Route::get('/menu', function () {
-    return view('guests.menu');
+Route::get('/betalen', function () {
+    return view('guests.betalen');
 });
+
+Route::get('/menu', [PizzasController::class, 'index'])->name('guests.menu');
+Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
+Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
+
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {
         return view('dashboard');
