@@ -18,6 +18,10 @@ class PizzasController extends Controller
     {
         return view("guests.menu", ['pizzas' => Pizzas::all()]);
     }
+    public function index2()
+    {
+        return view("guests.betalen", ['pizzas' => Pizzas::all()]);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +41,8 @@ class PizzasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pizzas::create($request->except('_token'));
+        return redirect()->route('guests.betalen');
     }
 
     /**

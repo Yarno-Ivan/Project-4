@@ -29,12 +29,15 @@
 </nav>
 <div class="font-bold text-3xl flex justify-center items-center ">Pas uw pizza {{ $pizzas->naam }} aan</div>
 </br>
-<div >
+<div class="font-bold text-3xl flex justify-center items-center ">
     <form action="{{ route('guests.update', $pizzas->id) }}" method="POST">
         @csrf
         @method('PUT')
-        <checkbox>{{ $pizzas->naam }}</checkbox>
-        <input type="text" name="naam" id="naam" required value="{{ $pizzas->naam }}">
+        <select name="grote van de pizza">
+          <option value="klein">Klein</option>
+          <option value="klein">Normaal</option>
+          <option value="klein">Groot</option>
+        </select>
         <button  type="submit">aanpassen</button>
     </form>
 </div>

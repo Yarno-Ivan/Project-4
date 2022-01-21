@@ -35,29 +35,29 @@
           <h1 class="font-semibold text-2xl">Winkelmandje</h1>
         </div>
         <div class="flex mt-10 mb-5">
-          <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Pizza</h3>
+          <h3 class="font-semibold text-gray-600 text-base w-2/5">Pizza's</h3>
           <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Hoeveel</h3>
           <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Prijs</h3>
           <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Totaal</h3>
         </div>
+        @foreach ($pizzas as $pizza)
         <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
           <div class="flex w-2/5"> <!-- product -->
-            <div class="w-20">
-              <img class="h-24" src="" alt="">  <!-- foto pizza -->
-            </div>
             <div class="flex flex-col justify-between ml-4 flex-grow">
-              <span class="font-bold text-sm">Pizza</span>  
-              <span class=" text-sm">Hawaii</span>  <!-- Naam pizza -->
+              <span class="font-bold text-sm">Pizza</span>
+              <br>  
+              <span class=" text-sm">{{$pizza->naam}}</span>  <!-- Naam pizza -->
+              <br>  
               <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Verwijder</a>  
             </div>
           </div>
           <div class="flex justify-center w-1/5">
             <label>1</label><!-- hoeveel -->
           </div>
-          <span class="text-center w-1/5 font-semibold text-sm">$2.00</span> <!-- Prijs -->
-          <span class="text-center w-1/5 font-semibold text-sm">$400.00</span> <!-- Totaal prijs -->
+          <span class="text-center w-1/5 font-semibold text-sm">€ {{$pizza->prijs}}</span> <!-- Prijs -->
+          <span class="text-center w-1/5 font-semibold text-sm">€ 400.00</span> <!-- Totaal prijs -->
         </div>
-
+        @endforeach
         <a href="/menu" class="flex font-semibold text-indigo-600 text-sm mt-10">
           <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512"><path d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z"/></svg>
           Ga terug naar menu
@@ -86,7 +86,7 @@
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm ">
             <span>Totaal</span>
-            <span>$600</span>
+            <span>€ 600</span>
           </div>
           <button class="bg-indigo-600 font-semibold py-3 text-sm text-white uppercase w-full">Betalen</button>
         </div>

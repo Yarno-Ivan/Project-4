@@ -33,6 +33,7 @@
   <a>Pizzas</a>
   <a>Info</a>
   <a>Prijs</a>
+  <a>Pas uw Pizza aan</a>
   <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
   <div class="flex flex-row-reverse ml-2 w-full">
     <div slot="icon" class="relative">
@@ -48,11 +49,13 @@
 </br>
 @foreach ($pizzas as $pizza)
 <div>
-  <form class="flex justify-evenly items-center flex-1 ">
+  <form class="flex justify-evenly items-center flex-1" action="{{ route('guests.store', $pizza->id) }}" method="POST">
+    @csrf
     <a>{{$pizza->naam}}</a>  
     <a>{{$pizza->info}}</a> 
     <a>{{$pizza->prijs}}</a>
     <a href="/menu/{{$pizza->id}}/edit">Aanpassen</a>
+    <button type="submit">voeg toe</a>
   </form>
 </div>
 @endforeach
