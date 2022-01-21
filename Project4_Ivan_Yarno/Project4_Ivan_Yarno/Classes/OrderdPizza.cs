@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Project4_Ivan_Yarno.Classes
 {
-    class OrderdPizza
+    public class OrderdPizza : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
         private int id;
         private int bestellingid;
         private string pizzanaam;
@@ -41,5 +48,7 @@ namespace Project4_Ivan_Yarno.Classes
             get { return id; }
             set { id = value; }
         }
+
+        
     }
 }

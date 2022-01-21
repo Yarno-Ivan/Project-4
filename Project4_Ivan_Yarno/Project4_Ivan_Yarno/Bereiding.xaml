@@ -19,6 +19,8 @@
             <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition/>
             <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.2*"/>
             <ColumnDefinition Width="0.1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -32,12 +34,12 @@
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="0.1*"/>
         </Grid.RowDefinitions>
-        <ListView x:Name="LvOrders" Grid.Row="2" Grid.Column="2" Grid.RowSpan="5" ItemsSource="{Binding Order}" SelectedItem="{Binding SelectedOrder, UpdateSourceTrigger=PropertyChanged}" BorderThickness="2" BorderBrush="Black" SelectionChanged="SCorders">
+        <ListView x:Name="LvOrders" Grid.Row="2" Grid.Column="2" Grid.RowSpan="5" ItemsSource="{Binding Bestelling}" SelectedItem="{Binding SelectedOrder, UpdateSourceTrigger=PropertyChanged}" BorderThickness="2" BorderBrush="Black" SelectionChanged="SCorders">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{} {0} {1}">
+                            <MultiBinding StringFormat="{}Bestelling : {0} Prijs : {1}">
                                 <Binding Path="ID"/>
                                 <Binding Path="TotaalPrijs"/>
 
@@ -47,7 +49,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="5" x:Name="LvPizzas" ItemsSource="{Binding Pizza}" BorderThickness="2" BorderBrush="Black">
+        <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="5" x:Name="LvPizzas" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
@@ -62,12 +64,24 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Grid.Row="2" Grid.Column="6" Grid.RowSpan="5" x:Name="ingredienten" ItemsSource="{Binding Ingredienten}" BorderThickness="2" BorderBrush="Black">
+        <ListView Grid.Row="2" Grid.Column="6" Grid.RowSpan="5" x:Name="ingredienten" BorderThickness="2" BorderBrush="Black">
             
         </ListView>
-        <TextBlock Grid.Row="1" Grid.Column="2" FontSize="35" VerticalAlignment="Center" TextAlignment="Center">Orders</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="4" FontSize="35" VerticalAlignment="Center" TextAlignment="Center">Pizza's</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="6" FontSize="35" VerticalAlignment="Center" TextAlignment="Center">Ingredienten</TextBlock>
-
+        <TextBlock Grid.Row="1" Grid.Column="2" FontSize="30" VerticalAlignment="Center" TextAlignment="Center">Orders</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="4" FontSize="30" VerticalAlignment="Center" TextAlignment="Center">Pizza's</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="6" FontSize="30" VerticalAlignment="Center" TextAlignment="Center">Pizza info</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="8" FontSize="30" VerticalAlignment="Center" TextAlignment="Center">Status</TextBlock>
+        <ListView Grid.Column="8" Grid.Row="2" Grid.RowSpan="5" Background="White" BorderThickness="2" BorderBrush="Black"></ListView>
+        <TextBlock Grid.Row="2" Grid.Column="8" FontSize="20" VerticalAlignment="Bottom" TextAlignment="Center">Order status</TextBlock>
+        <TextBlock x:Name="TbStatus" Grid.Row="3" Grid.Column="8" FontSize="15" VerticalAlignment="Top" Margin="0,10,0,0" TextAlignment="Center"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="8" FontSize="20" VerticalAlignment="Bottom" TextAlignment="Center">Status aanpassen</TextBlock>
+        <ComboBox x:Name="CBStatus" Grid.Row="5" Grid.Column="8" Height="35" Width="120">
+            <ComboBoxItem>Besteld</ComboBoxItem>
+            <ComboBoxItem>Word bereid</ComboBoxItem>
+            <ComboBoxItem>Klaar voor bezorgen</ComboBoxItem>
+            <ComboBoxItem>Word bezorgd</ComboBoxItem>
+            <ComboBoxItem>Afgeleverd</ComboBoxItem>
+        </ComboBox>
+        <Button Grid.Row="6" Grid.Column="8" Height="35" Width="120" Click="BTPasOrderStatusAan_Click">PAS AAN</Button>
     </Grid>
 </Window>

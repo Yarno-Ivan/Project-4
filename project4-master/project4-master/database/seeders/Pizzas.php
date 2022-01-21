@@ -18,8 +18,11 @@ class Pizzas extends Seeder
             'naam' => 'Magaritha',
             'info' => 'geen',
             'prijs' => '10',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::tomorrow(),
+        ]);
+        DB::table('pizzas')->insert([
+            'naam' => 'fungi',
+            'info' => 'geen',
+            'prijs' => '10',
         ]);
     }
 }

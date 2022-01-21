@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,8 +21,15 @@ namespace Project4_Ivan_Yarno
     /// <summary>
     /// Interaction logic for Bereiding.xaml
     /// </summary>
-    public partial class Bereiding : Window
+    public partial class Bereiding : Window, INotifyPropertyChanged
     {
+        #region links
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
         DB db = new DB();
         private string id;
 
@@ -42,8 +50,9 @@ namespace Project4_Ivan_Yarno
         public ObservableCollection<Order> Bestelling
         {
             get { return bestelling; }
-            set { bestelling = value; }
+            set { bestelling = value; OnPropertyChanged(); }
         }
+        #endregion
         public Bereiding()
         {
             InitializeComponent();
@@ -52,31 +61,45 @@ namespace Project4_Ivan_Yarno
         }
         private void LoadAll()
         {
-            LvOrders.ItemsSource = Bestelling = db.GetAllOrders();
+            Bestelling = db.GetAllOrders();
         }
 
         private void PizzaLoad()
         {
             try
             {
-                Order SelectedId = (Order)LvOrders.SelectedItem;
-                Id = SelectedId.ID.ToString();
+                Order order = (Order)LvOrders.SelectedItem;
+                Id = order.ID.ToString();
                 LvPizzas.ItemsSource = db.PizzaLoad(Id).ToList();
+                TbStatus.Text = order.Status;
             }
             catch (Exception) { }
-
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void NotifyPropertyChanged(string Property = "")
-        {
-            PropertyChanged.Invoke(this, new PropertyChangedEventArgs(Property));
-        }
 
         private void SCorders(object sender, SelectionChangedEventArgs e)
         {
             PizzaLoad();
+
+        }
+
+        private void BTPasOrderStatusAan_Click(object sender, RoutedEventArgs e)
+        {
+            Order order = (Order)LvOrders.SelectedItem;
+            ComboBoxItem cbi = (ComboBoxItem)CBStatus.SelectedItem;
+            string selectedText = cbi.Content.ToString();
+            if (db.UpdateStatus(selectedText, order.ID))
+            {
+                PizzaLoad();
+                order.Status = selectedText;
+                TbStatus.Text = order.Status;
+                CBStatus.SelectedValue = "";
+                MessageBox.Show($"Status aangepast");
+            }
+            else
+            {
+                MessageBox.Show($"Aanpassen van Status mislukt");
+            }
         }
     }
 }

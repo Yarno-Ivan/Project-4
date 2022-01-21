@@ -18,8 +18,6 @@ class CreateOrderdpizzasTable extends Migration
             $table->integer('bestelling_id')->nullable();
             $table->string('naam')->nullable();
             $table->string('grote')->nullable();
-            $table->string('extra-opmerking')->nullable();
-            $table->timestamps();
         });
     }
 

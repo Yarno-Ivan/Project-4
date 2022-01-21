@@ -14,6 +14,15 @@ class Bestellingen extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('bestellingen')->insert([
+            'id-klant' => '1',
+            'totaalprijs' => '10',
+            'status' => 'Besteld',
+        ]);
+        DB::table('bestellingen')->insert([
+            'id-klant' => '2',
+            'totaalprijs' => '11',
+            'status' => 'Besteld',
+        ]);
     }
 }

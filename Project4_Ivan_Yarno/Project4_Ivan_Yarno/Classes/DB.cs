@@ -109,6 +109,21 @@ namespace Project4_Ivan_Yarno.Classes
             }
             return ocReturnpizza;
         }
+        public bool UpdateStatus(string OrderStatus,int Orderid)
+        {
+            bool succes = false;
+            using (MySqlConnection con = new MySqlConnection(conn))
+            {
+                con.Open();
+                MySqlCommand command = con.CreateCommand();
+                command.CommandText = "UPDATE `bestellingen` SET `status` = @Status WHERE `bestellingen`.`id` = @orderid;";
+                command.Parameters.AddWithValue("@orderid", Orderid);
+                command.Parameters.AddWithValue("@Status", OrderStatus);
+                int nrOfRowsAffected = command.ExecuteNonQuery();
+                succes = (nrOfRowsAffected != 0);
+            }
+            return succes;
+        }
 
     }
 }

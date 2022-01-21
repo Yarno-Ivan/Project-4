@@ -31,7 +31,6 @@ namespace Project4_Ivan_Yarno
         private void BtLogin_Click(object sender, RoutedEventArgs e)
         {
             Login login = Conn.Inloggen(TbNaam.Text);
-            MessageBox.Show(login.ID.ToString(), login.Naam);
             bool PassBcrypt = BCrypt.Net.BCrypt.Verify(TbWachtwoord.Text, login.Wachtwoord);
             if (PassBcrypt == true)
             {

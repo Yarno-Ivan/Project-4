@@ -15,11 +15,28 @@ class Vooraad extends Seeder
     public function run()
     {
         DB::table('vooraad')->insert([
-            'naam' => 'kaas',
-            'aantal op vooraad' => '100',
-            'prijs' => '10.20',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::tomorrow()
+            'naam' => 'Brood 25cm',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'Brood 30cm',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'Brood 35cm',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'Kaas',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'TomatenSaus',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'Ananas',
+            'aantal' => '1',
         ]);
     }
 }
