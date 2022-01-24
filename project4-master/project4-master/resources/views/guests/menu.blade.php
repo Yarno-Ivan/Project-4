@@ -49,7 +49,8 @@
 </div>
 </br>
 @foreach ($pizzas as $pizza)
-<div>
+<div class="flex flex-wrap overflow-hidden xl:-mx-8">
+
   <form class="flex justify-evenly items-center flex-1" action="{{ route('guests.store', $pizza->id) }}" method="POST">
     @csrf
     <a>{{$pizza->naam}}</a>  
