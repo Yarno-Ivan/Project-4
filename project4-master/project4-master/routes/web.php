@@ -32,6 +32,9 @@ Route::get('/', function () {
 Route::get('/Contact', function () {
     return view('guests.contact');
 });
+Route::get('/overons', function () {
+    return view('guests.overons');
+});
 
 Route::get('/betalen', [PizzasController::class, 'index2'])->name('guests.betalen');
 Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
