@@ -13,7 +13,7 @@ class CreateOrderdpizzasTable extends Migration
      */
     public function up()
     {
-        Schema::create('orderdpizzas', function (Blueprint $table) {
+        Schema::create('orderd_pizzas', function (Blueprint $table) {
 
             $table->unsignedBigInteger('bestelling_id')->index();
             $table->unsignedBigInteger('pizza_id')->index();
@@ -33,6 +33,6 @@ class CreateOrderdpizzasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orderdpizzas');
+        Schema::dropIfExists('orderd_pizzas');
     }
 }

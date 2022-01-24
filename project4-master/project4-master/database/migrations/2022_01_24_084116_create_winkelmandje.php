@@ -15,7 +15,7 @@ class CreateWinkelmandje extends Migration
     {
         Schema::create('winkelmandje', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->double('totaalprijs')->nullable();
         });
     }
 

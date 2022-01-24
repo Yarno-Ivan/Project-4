@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class orderdpizzas extends Model
+class winkelmandpizza extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class orderdpizzas extends Model
      *
      * @var string
      */
-    protected $table = 'orderd_pizzas';
+    protected $table = 'Winkelmand_Pizza';
 
     /**
      * Indicates if the model should be timestamped.
@@ -25,7 +25,8 @@ class orderdpizzas extends Model
 
 
     protected $fillable = [
-        'bestelling_id',
-        'pizza_id'
+        'pizza_id',
+        'winkelmand_id',
+        'user_id'
     ];
 }
