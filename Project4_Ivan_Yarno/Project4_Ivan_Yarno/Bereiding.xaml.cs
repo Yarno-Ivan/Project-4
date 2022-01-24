@@ -52,6 +52,21 @@ namespace Project4_Ivan_Yarno
             get { return bestelling; }
             set { bestelling = value; OnPropertyChanged(); }
         }
+        private ObservableCollection<OrderdPizza> pizzas;
+
+        public ObservableCollection<OrderdPizza> Pizzas
+        {
+            get { return pizzas; }
+            set { pizzas = value; OnPropertyChanged(); }
+        }
+
+        private ObservableCollection<Vooraad> ingredienten;
+
+        public ObservableCollection<Vooraad> Ingredienten
+        {
+            get { return ingredienten; }
+            set { ingredienten = value; OnPropertyChanged(); }
+        }
         #endregion
         public Bereiding()
         {
@@ -70,12 +85,27 @@ namespace Project4_Ivan_Yarno
             {
                 Order order = (Order)LvOrders.SelectedItem;
                 Id = order.ID.ToString();
-                LvPizzas.ItemsSource = db.PizzaLoad(Id).ToList();
+                Pizzas = db.PizzaLoad(Id);
                 TbStatus.Text = order.Status;
             }
-            catch (Exception) { }
-        }
+            catch (Exception)
+            {
 
+            }
+        }
+        private void IngredientenLoad()
+        {
+            try
+            {
+                OrderdPizza orderdpizza = (OrderdPizza)LvPizzas.SelectedItem;
+                string pizaid = orderdpizza.ID.ToString();
+                Ingredienten = db.IngredientenLoad(pizaid);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
         private void SCorders(object sender, SelectionChangedEventArgs e)
         {
@@ -100,6 +130,11 @@ namespace Project4_Ivan_Yarno
             {
                 MessageBox.Show($"Aanpassen van Status mislukt");
             }
+        }
+
+        private void SCPizza(object sender, SelectionChangedEventArgs e)
+        {
+            IngredientenLoad();
         }
     }
 }

@@ -116,6 +116,8 @@
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\OrderdPizza.cs" />
+    <Compile Include="Classes\Pizza.cs" />
+    <Compile Include="Classes\Vooraad.cs" />
     <Compile Include="management.xaml.cs">
       <DependentUpon>management.xaml</DependentUpon>
     </Compile>

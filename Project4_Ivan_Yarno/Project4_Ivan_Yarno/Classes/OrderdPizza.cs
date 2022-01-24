@@ -17,30 +17,18 @@ namespace Project4_Ivan_Yarno.Classes
         }
         private int id;
         private int bestellingid;
+        private int pizzaid;
         private string pizzanaam;
-        private string pizzagrote;
-        private string extraopmerking;
-
-        public string PizzaGrote
-        {
-            get { return pizzagrote; }
-            set { pizzagrote = value; }
-        }
 
         public int BestellingID
         {
             get { return bestellingid; }
             set { bestellingid = value; }
         }
-        public string PizzaNaam
+        public int PizzaID
         {
-            get { return pizzanaam; }
-            set { pizzanaam = value; }
-        }
-        public string ExtraOpmerking
-        {
-            get { return extraopmerking; }
-            set { extraopmerking = value; }
+            get { return pizzaid; }
+            set { pizzaid = value; }
         }
 
         public int ID
@@ -48,7 +36,12 @@ namespace Project4_Ivan_Yarno.Classes
             get { return id; }
             set { id = value; }
         }
+        public string PizzaNaam
+        {
+            get { return pizzanaam; }
+            set { pizzanaam = value; }
+        }
 
-        
+
     }
 }

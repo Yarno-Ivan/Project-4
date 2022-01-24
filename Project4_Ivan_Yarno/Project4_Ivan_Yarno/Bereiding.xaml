@@ -49,23 +49,31 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="5" x:Name="LvPizzas" BorderThickness="2" BorderBrush="Black">
+        <ListView Grid.Row="2" Grid.Column="4" Grid.RowSpan="5" x:Name="LvPizzas" ItemsSource="{Binding Pizzas}" BorderThickness="2" BorderBrush="Black" SelectionChanged="SCPizza">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{} {0} {1}">
+                            <MultiBinding StringFormat="{} {0}">
                                 <Binding Path="PizzaNaam"/>
-                                <Binding Path="PizzaGrote"/>
-
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <ListView Grid.Row="2" Grid.Column="6" Grid.RowSpan="5" x:Name="ingredienten" BorderThickness="2" BorderBrush="Black">
-            
+        <ListView Grid.Row="2" Grid.Column="6" Grid.RowSpan="5" x:Name="LvIngredienten" BorderThickness="2" ItemsSource="{Binding Ingredienten}" BorderBrush="Black">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{} {0}">
+                                <Binding Path="Naam"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <TextBlock Grid.Row="1" Grid.Column="2" FontSize="30" VerticalAlignment="Center" TextAlignment="Center">Orders</TextBlock>
         <TextBlock Grid.Row="1" Grid.Column="4" FontSize="30" VerticalAlignment="Center" TextAlignment="Center">Pizza's</TextBlock>

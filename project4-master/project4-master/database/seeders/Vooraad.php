@@ -27,17 +27,42 @@ class Vooraad extends Seeder
             'aantal' => '1',
         ]);
         DB::table('vooraad')->insert([
-            'naam' => 'Kaas',
+            'naam' => 'tomatensaus',
             'aantal' => '1',
         ]);
         DB::table('vooraad')->insert([
-            'naam' => 'TomatenSaus',
+            'naam' => 'Ui',
             'aantal' => '1',
         ]);
         DB::table('vooraad')->insert([
-            'naam' => 'Ananas',
+            'naam' => 'geraspte kaas',
             'aantal' => '1',
         ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'knoflook',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'tomaten',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'mozarella',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'champignons',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'ham',
+            'aantal' => '1',
+        ]);
+        DB::table('vooraad')->insert([
+            'naam' => 'Gedroogde oregano',
+            'aantal' => '1',
+        ]);
+
     }
 }
 
