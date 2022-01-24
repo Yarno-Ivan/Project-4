@@ -29,6 +29,9 @@ Route::get('/index', function () {
 Route::get('/', function () {
     return view('guests.index');
 });
+Route::get('/Contact', function () {
+    return view('guests.contact');
+});
 
 Route::get('/betalen', [PizzasController::class, 'index2'])->name('guests.betalen');
 Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
