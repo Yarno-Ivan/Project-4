@@ -42,8 +42,10 @@ class PizzasController extends Controller
      */
     public function store(Request $request)
     {
+        
         winkelmandpizza::create($request->except('_token'));
-        return redirect()->route('guests.menu');
+        dd($request->except('_token'));
+        //return redirect()->route('guests.menu');
     }
 
     /**

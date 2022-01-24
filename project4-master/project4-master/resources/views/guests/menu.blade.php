@@ -60,6 +60,8 @@
     <button type="submit">voeg toe</a>
   </form>
 </div>
+<br>
+
 @endforeach
 </body>
 </html>

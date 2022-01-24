@@ -21,5 +21,9 @@ class Pizzas extends Model
      * @var string[]|bool
      */
     protected $guarded = ['*', 'id'];
-    
+
+
+    public function winkelmand(){
+        return $this->hasMany(winkelmandpizza::class);
+    }
 }

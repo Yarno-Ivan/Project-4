@@ -29,7 +29,7 @@ class winkelmandpizza extends Model
         'winkelmand_id',
         'user_id'
     ];
-    public function pizza(){
-        return $this->belongsTo(Pizza::class);
+    public function winkelmand(){
+        return $this->hasMany(Pizzas::class);
     }
 }
