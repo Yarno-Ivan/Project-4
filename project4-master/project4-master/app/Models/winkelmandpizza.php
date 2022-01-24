@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pizzas;
 
 class winkelmandpizza extends Model
 {
@@ -14,7 +15,7 @@ class winkelmandpizza extends Model
      *
      * @var string
      */
-    protected $table = 'Winkelmand_Pizza';
+    protected $table = 'winkelmand_pizza';
 
     /**
      * Indicates if the model should be timestamped.
@@ -23,10 +24,12 @@ class winkelmandpizza extends Model
      */
     public $timestamps = false;
 
-
     protected $fillable = [
         'pizza_id',
         'winkelmand_id',
         'user_id'
     ];
+    public function pizza(){
+        return $this->belongsTo(Pizza::class);
+    }
 }

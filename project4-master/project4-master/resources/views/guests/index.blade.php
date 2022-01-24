@@ -38,8 +38,14 @@
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</br>
  Lorem Ipsum has been the industry's standard dummy text ever since the </br>
  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-
 </p>
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a class="text-sm font-bold tracking-wide bg-indigo-600 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline  " href="/menu" >Bekijk ons menu</a> 
   </div>
 
   <div class="my-px px-px w-1/2 overflow-hidden sm:my-6 sm:px-6">

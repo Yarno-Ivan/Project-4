@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Pizzas;
+use App\Models\winkelmandpizza;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -41,8 +42,8 @@ class PizzasController extends Controller
      */
     public function store(Request $request)
     {
-        Pizzas::create($request->except('_token'));
-        return redirect()->route('guests.betalen');
+        winkelmandpizza::create($request->except('_token'));
+        return redirect()->route('guests.menu');
     }
 
     /**
