@@ -108,7 +108,7 @@ namespace Project4_Ivan_Yarno.Classes
                 return null;
             }
         }
-        public ObservableCollection<OrderdPizza> PizzaLoad(string Idorder)
+        public ObservableCollection<OrderdPizza> PizzaLoad(int Idorder)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace Project4_Ivan_Yarno.Classes
                 {
                     con.Open();
                     MySqlCommand command = con.CreateCommand();
-                    command.CommandText = "SELECT * FROM pizzas INNER JOIN orderdpizzas ON pizzas.ID = orderdpizzas.pizza_id AND orderdpizzas.bestelling_id = @id";
+                    command.CommandText = "SELECT * FROM pizzas INNER JOIN orderd_pizzas ON pizzas.ID = orderd_pizzas.pizza_id AND orderd_pizzas.bestelling_id = @id";
 
 
                     command.Parameters.AddWithValue("@Id", Idorder);
@@ -137,16 +137,18 @@ namespace Project4_Ivan_Yarno.Classes
                 }
                 return ocReturnpizza;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 MessageBox.Show("DataBase : pizzas inladen mislukt");
+
                 throw;
             }       
         }
-        public ObservableCollection<Vooraad> IngredientenLoad(string IdPizza)
+        public ObservableCollection<Vooraad> IngredientenLoad(int IdPizza)
         {
             try
-            {
+            { 
                 ObservableCollection<Vooraad> ocReturnvooraad = new ObservableCollection<Vooraad>();
                 DataTable Dtvooraad = new DataTable();
                 using (MySqlConnection con = new MySqlConnection(conn))

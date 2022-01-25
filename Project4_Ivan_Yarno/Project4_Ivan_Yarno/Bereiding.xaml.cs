@@ -43,8 +43,17 @@ namespace Project4_Ivan_Yarno
         public Order SelectedOrder
         {
             get { return selectedorder; }
-            set { selectedorder = value; }
+            set { selectedorder = value; OnPropertyChanged(); PizzaLoad(); }
         }
+
+        private OrderdPizza selectedpizza;
+
+        public OrderdPizza SelectedPizza
+        {
+            get { return selectedpizza; }
+            set { selectedpizza = value; OnPropertyChanged(); IngredientenLoad(); }
+        }
+
         private ObservableCollection<Order> bestelling;
 
         public ObservableCollection<Order> Bestelling
@@ -80,49 +89,22 @@ namespace Project4_Ivan_Yarno
         }
 
         private void PizzaLoad()
-        {
-            try
-            {
-                Order order = (Order)LvOrders.SelectedItem;
-                Id = order.ID.ToString();
-                Pizzas = db.PizzaLoad(Id);
-                TbStatus.Text = order.Status;
-            }
-            catch (Exception)
-            {
-
-            }
+        {            
+                Pizzas = db.PizzaLoad(SelectedOrder.ID);       
         }
         private void IngredientenLoad()
-        {
-            try
-            {
-                OrderdPizza orderdpizza = (OrderdPizza)LvPizzas.SelectedItem;
-                string pizaid = orderdpizza.ID.ToString();
-                Ingredienten = db.IngredientenLoad(pizaid);
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-        private void SCorders(object sender, SelectionChangedEventArgs e)
-        {
-            PizzaLoad();
-
+        {  
+                Ingredienten = db.IngredientenLoad(SelectedPizza.ID);
         }
 
         private void BTPasOrderStatusAan_Click(object sender, RoutedEventArgs e)
         {
-            Order order = (Order)LvOrders.SelectedItem;
             ComboBoxItem cbi = (ComboBoxItem)CBStatus.SelectedItem;
             string selectedText = cbi.Content.ToString();
-            if (db.UpdateStatus(selectedText, order.ID))
+            if (db.UpdateStatus(selectedText, SelectedOrder.ID))
             {
                 PizzaLoad();
-                order.Status = selectedText;
-                TbStatus.Text = order.Status;
+                SelectedOrder.Status = selectedText;
                 CBStatus.SelectedValue = "";
                 MessageBox.Show($"Status aangepast");
             }
@@ -130,11 +112,6 @@ namespace Project4_Ivan_Yarno
             {
                 MessageBox.Show($"Aanpassen van Status mislukt");
             }
-        }
-
-        private void SCPizza(object sender, SelectionChangedEventArgs e)
-        {
-            IngredientenLoad();
         }
     }
 }
