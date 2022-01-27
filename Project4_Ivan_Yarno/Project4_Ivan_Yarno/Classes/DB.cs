@@ -119,10 +119,7 @@ namespace Project4_Ivan_Yarno.Classes
                     con.Open();
                     MySqlCommand command = con.CreateCommand();
                     command.CommandText = "SELECT * FROM pizzas INNER JOIN orderd_pizzas ON pizzas.ID = orderd_pizzas.pizza_id AND orderd_pizzas.bestelling_id = @id";
-
-
                     command.Parameters.AddWithValue("@Id", Idorder);
-
                     MySqlDataReader reader = command.ExecuteReader();
                     DtPizza.Load(reader);
                 }
@@ -156,10 +153,7 @@ namespace Project4_Ivan_Yarno.Classes
                     con.Open();
                     MySqlCommand command = con.CreateCommand();
                     command.CommandText = "SELECT * FROM vooraad INNER JOIN pizza_vooraad ON vooraad.ID = pizza_vooraad.vooraad_id AND pizza_vooraad.pizza_id = @id";
-
-
                     command.Parameters.AddWithValue("@Id", IdPizza);
-
                     MySqlDataReader reader = command.ExecuteReader();
                     Dtvooraad.Load(reader);
                 }

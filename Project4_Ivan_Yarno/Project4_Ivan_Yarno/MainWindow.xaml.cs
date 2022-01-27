@@ -37,37 +37,10 @@ namespace Project4_Ivan_Yarno
                 if (PassBcrypt == true)
                 {
                     Login loginroleid = Conn.GetRoleID(login.ID);
-                    switch (loginroleid.RoleID)
-                    {
-                        case 2:
-                            Balie balie = new Balie();
-                            balie.Show();
-                            this.Close();
-                            break;
-                        case 3:
-                            Bereiding bereiding = new Bereiding();
-                            bereiding.Show();
-                            this.Close();
-                            break;
-                        case 4:
-                            Bezorging bezorging = new Bezorging();
-                            bezorging.Show();
-                            this.Close();
-                            break;
-                        case 5:
-                            management management = new management();
-                            management.Show();
-                            this.Close();
-                            break;
-                        case 6:
-                            Admin admin = new Admin();
-                            admin.Show();
-                            this.Close();
-                            break;
-                        default:
-                            MessageBox.Show("U heeft geen toegang tot dit systeem");
-                            break;
-                    }
+                    int roleid = Convert.ToInt32(loginroleid);
+                    NavigatieMenu navigatiemenu = new NavigatieMenu(roleid);
+                    navigatiemenu.Show();
+                    this.Close();
                 }
             }
             else

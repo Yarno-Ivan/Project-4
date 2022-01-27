@@ -121,6 +121,9 @@
     <Compile Include="management.xaml.cs">
       <DependentUpon>management.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NavigatieMenu.xaml.cs">
+      <DependentUpon>NavigatieMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registreren.xaml.cs">
       <DependentUpon>Registreren.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="management.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="NavigatieMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
