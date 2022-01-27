@@ -21,8 +21,6 @@ namespace Project4_Ivan_Yarno
     /// </summary>
     public partial class NavigatieMenu : Window
     {
-        
-        private DB Conn = new DB();
         private string rolid;
 
         public NavigatieMenu(string rolid)
@@ -73,7 +71,7 @@ namespace Project4_Ivan_Yarno
                     BtBeheerKlant.Visibility = Visibility.Visible;
                     BtBeheerIngredienten.Visibility = Visibility.Visible;
                     break;
-                case "6":
+                case "999":
                     BtBestellingen.Visibility = Visibility.Visible;
                     BtBezorging.Visibility = Visibility.Visible;
                     BtBeheerPizzas.Visibility = Visibility.Visible;

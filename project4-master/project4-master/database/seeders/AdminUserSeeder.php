@@ -17,8 +17,14 @@ class AdminUserSeeder extends Seeder
         User::create([
         'id' => '1',
             'name' => 'samira',
+            'back_name'=>'van hender',
             'email' => 'samira@pizzasumma.nl',
             'password' => bcrypt('password'),
+            'address' => 'adres 1',
+            'phone'=>'0612345678',
+            'zipcode'=>'1234 AB',
+            'city' =>'stad 1',
+            'pizza_points'=>'0',
         ]);
     }
 }

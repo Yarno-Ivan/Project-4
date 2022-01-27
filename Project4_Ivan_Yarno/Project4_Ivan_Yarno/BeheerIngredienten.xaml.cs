@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Project4_Ivan_Yarno
 {
     /// <summary>
-    /// Interaction logic for management.xaml
+    /// Interaction logic for BeheerIngredienten.xaml
     /// </summary>
-    public partial class management : Window
+    public partial class BeheerIngredienten : Window
     {
-        public management()
+        public BeheerIngredienten()
         {
             InitializeComponent();
         }

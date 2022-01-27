@@ -107,6 +107,9 @@
     <Compile Include="Balie.xaml.cs">
       <DependentUpon>Balie.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BeheerIngredienten.xaml.cs">
+      <DependentUpon>BeheerIngredienten.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bereiding.xaml.cs">
       <DependentUpon>Bereiding.xaml</DependentUpon>
     </Compile>
@@ -117,10 +120,8 @@
     <Compile Include="Classes\Order.cs" />
     <Compile Include="Classes\OrderdPizza.cs" />
     <Compile Include="Classes\Pizza.cs" />
+    <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Vooraad.cs" />
-    <Compile Include="management.xaml.cs">
-      <DependentUpon>management.xaml</DependentUpon>
-    </Compile>
     <Compile Include="NavigatieMenu.xaml.cs">
       <DependentUpon>NavigatieMenu.xaml</DependentUpon>
     </Compile>
@@ -132,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Balie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BeheerIngredienten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,10 +161,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="management.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="NavigatieMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
