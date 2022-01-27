@@ -8,8 +8,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PizzasController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,15 +36,12 @@ Route::get('/overons', function () {
     return view('guests.overons');
 });
 
-//Route::get('/betalen', [PizzasController::class, 'index2'])->name('guests.betalen');
-//Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
+Route::get('/betalen', [PizzasController::class, 'index2'])->name('guests.betalen');
+Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
 
-//Route::get('/menu', [PizzasController::class, 'index'])->name('guests.menu');
-//Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
-//Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
-Route::get('/', [ProductController::class, 'productList'])->name('products.list');
-Route::get('/cart', [ProductController::class, 'cartList'])->name('cart.list');
-Route::post('/cart', [ProductController::class, 'addToCart'])->name('cart.store');
+Route::get('/menu', [PizzasController::class, 'index'])->name('guests.menu');
+Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
+Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {

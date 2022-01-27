@@ -1,4 +1,4 @@
-@livewireStyles
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,8 +61,8 @@
   </form>
 </div>
 <br>
+
 @endforeach
-@livewireScripts
 </body>
 </html>
 
