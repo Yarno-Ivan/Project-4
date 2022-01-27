@@ -37,7 +37,7 @@ namespace Project4_Ivan_Yarno
                 if (PassBcrypt == true)
                 {
                     Login loginroleid = Conn.GetRoleID(login.ID);
-                    int roleid = Convert.ToInt32(loginroleid);
+                    string roleid = loginroleid.RoleID.ToString();
                     NavigatieMenu navigatiemenu = new NavigatieMenu(roleid);
                     navigatiemenu.Show();
                     this.Close();

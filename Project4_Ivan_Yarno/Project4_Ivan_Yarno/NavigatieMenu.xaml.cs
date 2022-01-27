@@ -23,9 +23,9 @@ namespace Project4_Ivan_Yarno
     {
         
         private DB Conn = new DB();
-        private int rolid;
+        private string rolid;
 
-        public NavigatieMenu(int rolid)
+        public NavigatieMenu(string rolid)
         {
             InitializeComponent();
             this.rolid = rolid;
@@ -33,37 +33,79 @@ namespace Project4_Ivan_Yarno
         }
         private void SendUserToPage()
         {
+            BtBestellingen.Visibility = Visibility.Hidden;
+            BtBezorging.Visibility = Visibility.Hidden;
+            BtBeheerPizzas.Visibility = Visibility.Hidden;
+            BtBeheerPersoneel.Visibility = Visibility.Hidden;
+            BtBeheerKlant.Visibility = Visibility.Hidden;
+            BtBeheerIngredienten.Visibility = Visibility.Hidden;
             switch (rolid)
             {
-                case 2:
-                    Balie balie = new Balie();
-                    balie.Show();
-                    this.Close();
+                case "2":
+                    BtBestellingen.Visibility = Visibility.Visible;
+                    BtBezorging.Visibility = Visibility.Visible;
+                    BtBeheerPizzas.Visibility = Visibility.Hidden;
+                    BtBeheerPersoneel.Visibility = Visibility.Hidden;
+                    BtBeheerKlant.Visibility = Visibility.Hidden;
+                    BtBeheerIngredienten.Visibility = Visibility.Hidden;
                     break;
-                case 3:
-                    Bereiding bereiding = new Bereiding();
-                    bereiding.Show();
-                    this.Close();
+                case "3":
+                    BtBestellingen.Visibility = Visibility.Visible;
+                    BtBezorging.Visibility = Visibility.Hidden;
+                    BtBeheerPizzas.Visibility = Visibility.Hidden;
+                    BtBeheerPersoneel.Visibility = Visibility.Hidden;
+                    BtBeheerKlant.Visibility = Visibility.Hidden;
+                    BtBeheerIngredienten.Visibility = Visibility.Hidden;
                     break;
-                case 4:
-                    Bezorging bezorging = new Bezorging();
-                    bezorging.Show();
-                    this.Close();
+                case "4":
+                    BtBestellingen.Visibility = Visibility.Hidden;
+                    BtBezorging.Visibility = Visibility.Visible;
+                    BtBeheerPizzas.Visibility = Visibility.Hidden;
+                    BtBeheerPersoneel.Visibility = Visibility.Hidden;
+                    BtBeheerKlant.Visibility = Visibility.Hidden;
+                    BtBeheerIngredienten.Visibility = Visibility.Hidden;
                     break;
-                case 5:
-                    management management = new management();
-                    management.Show();
-                    this.Close();
+                case "5":
+                    BtBestellingen.Visibility = Visibility.Visible;
+                    BtBezorging.Visibility = Visibility.Visible;
+                    BtBeheerPizzas.Visibility = Visibility.Visible;
+                    BtBeheerPersoneel.Visibility = Visibility.Visible;
+                    BtBeheerKlant.Visibility = Visibility.Visible;
+                    BtBeheerIngredienten.Visibility = Visibility.Visible;
                     break;
-                case 6:
-                    Admin admin = new Admin();
-                    admin.Show();
-                    this.Close();
-                    break;
-                default:
-                    MessageBox.Show("U heeft geen toegang tot dit systeem");
+                case "6":
+                    BtBestellingen.Visibility = Visibility.Visible;
+                    BtBezorging.Visibility = Visibility.Visible;
+                    BtBeheerPizzas.Visibility = Visibility.Visible;
+                    BtBeheerPersoneel.Visibility = Visibility.Visible;
+                    BtBeheerKlant.Visibility = Visibility.Visible;
+                    BtBeheerIngredienten.Visibility = Visibility.Visible;
                     break;
             }
+        }
+
+        private void BtBestellingen_Click(object sender, RoutedEventArgs e)
+        {
+            Bereiding bereiding = new Bereiding();
+            bereiding.Show();
+            this.Close();
+        }
+
+        private void BtBezorging_Click(object sender, RoutedEventArgs e)
+        {
+            Bezorging bezorging = new Bezorging();
+            bezorging.Show();
+            this.Close();
+        }
+
+        private void BtBeheerIngredienten_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtBeheerKlant_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
