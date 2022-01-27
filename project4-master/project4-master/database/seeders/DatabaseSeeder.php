@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             Bestellingen::class,
             Pizza_Vooraad::class,
             orderdpizza::class,
+            productSeeder::class,
         ]);
     }
 }
