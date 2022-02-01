@@ -101,14 +101,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Admin.xaml.cs">
-      <DependentUpon>Admin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Balie.xaml.cs">
-      <DependentUpon>Balie.xaml</DependentUpon>
-    </Compile>
     <Compile Include="BeheerIngredienten.xaml.cs">
       <DependentUpon>BeheerIngredienten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BeheerKlanten.xaml.cs">
+      <DependentUpon>BeheerKlanten.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bereiding.xaml.cs">
       <DependentUpon>Bereiding.xaml</DependentUpon>
@@ -122,21 +119,20 @@
     <Compile Include="Classes\Pizza.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Vooraad.cs" />
+    <Compile Include="EditKlanten.xaml.cs">
+      <DependentUpon>EditKlanten.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavigatieMenu.xaml.cs">
       <DependentUpon>NavigatieMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="Registreren.xaml.cs">
       <DependentUpon>Registreren.xaml</DependentUpon>
     </Compile>
-    <Page Include="Admin.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Balie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="BeheerIngredienten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BeheerKlanten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -145,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Bezorging.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditKlanten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

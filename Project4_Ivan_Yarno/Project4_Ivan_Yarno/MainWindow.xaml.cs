@@ -42,10 +42,14 @@ namespace Project4_Ivan_Yarno
                     navigatiemenu.Show();
                     this.Close();
                 }
+                else
+                {
+                    MessageBox.Show("wachtwoord of naam onjuist probeer opnieuw");
+                }
             }
             else
             {
-                MessageBox.Show("wachtwoord of naam onjuist probeer opnieuw");
+                MessageBox.Show("u heeft geen toegang tot dit systeem");
             }
         }
     }

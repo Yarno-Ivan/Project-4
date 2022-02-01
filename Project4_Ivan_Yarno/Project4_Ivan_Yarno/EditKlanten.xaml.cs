@@ -1,0 +1,73 @@
+﻿using Project4_Ivan_Yarno.Classes;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace Project4_Ivan_Yarno
+{
+    /// <summary>
+    /// Interaction logic for EditKlanten.xaml
+    /// </summary>
+    public partial class EditKlanten : Window
+    {
+        DB db = new DB();
+        private int klantid;
+        private User klant;
+
+        public User Klant
+        {
+            get { return klant; }
+            set { klant = value; }
+        }
+        public EditKlanten(int klantid)
+        {
+            this.klantid = klantid;
+            InitializeComponent();
+            Loadklant();
+        }
+        public void Loadklant()
+        {
+            Klant = db.LoadUser(klantid);
+            TbID.Text = Klant.ID.ToString();
+            TbVoornaam.Text = Klant.Naam.ToString();
+            TbAchternaam.Text = Klant.AchterNaam.ToString();
+            TbEmail.Text = Klant.Email.ToString();
+            TbWachtwoord.Text = Klant.PassWord.ToString();
+            TbAdres.Text = Klant.Adres.ToString();
+            TbTelefoon.Text = Klant.TelefoonNummer.ToString();
+            TbPostcode.Text = Klant.PostCode.ToString();
+            TbStad.Text = Klant.Stad.ToString();
+            TbPunten.Text = Klant.PizzaPunten.ToString();
+        }
+        private void BtCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtOpslaan_Click(object sender, RoutedEventArgs e)
+        {
+            if (db.UpdateUser(TbID.Text, TbVoornaam.Text, TbAchternaam.Text, TbEmail.Text, TbWachtwoord.Text, TbAdres.Text, TbTelefoon.Text, TbPostcode.Text, TbStad.Text, TbPunten.Text))
+            {
+                MessageBox.Show($"Klant : {Klant.FullName} aangepast");
+            }
+            else
+            {
+                MessageBox.Show($"Aanpassen van {Klant.FullName} mislukt");
+            }
+            this.Close();
+        }
+    }
+}

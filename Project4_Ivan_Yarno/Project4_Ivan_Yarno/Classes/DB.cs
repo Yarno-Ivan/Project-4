@@ -46,7 +46,6 @@ namespace Project4_Ivan_Yarno.Classes
                 throw;
             }
         }
-
         public Login GetRoleID(int personid)
         {
             try
@@ -197,6 +196,171 @@ namespace Project4_Ivan_Yarno.Classes
             }
            
         }
+        public ObservableCollection<User> GetAllKlanten()
+        {
+            try
+            {
+                ObservableCollection<User> ocReturn = new ObservableCollection<User>();
+                DataTable dtReturn = new DataTable();
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT * FROM users INNER JOIN user_roles ON users.ID = user_roles.user_id AND user_roles.role_id = 1";
+                    MySqlDataReader Reader = cmd.ExecuteReader();
+                    dtReturn.Load(Reader);
+                    con.Close();
+                }
+                foreach (DataRow row in dtReturn.Rows)
+                {
+                    User user = new User();
+                    user.ID = Convert.ToInt32(row["ID"]);
+                    user.Naam = row["name"].ToString();
+                    user.AchterNaam = row["back_name"].ToString();
+                    user.Email = row["email"].ToString();
+                    user.Adres = row["address"].ToString();
+                    user.TelefoonNummer = row["phone"].ToString();
+                    user.PostCode = row["zipcode"].ToString();
+                    user.Stad = row["city"].ToString();
+                    user.PizzaPunten = Convert.ToInt32(row["pizza_points"]);
+                    ocReturn.Add(user);
+                }
+                return ocReturn;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : klanten ophalen mislukt");
+                return null;
+            }
+        }
+        public ObservableCollection<User> GetAllMedewerkers()
+        {
+            try
+            {
+                ObservableCollection<User> ocReturn = new ObservableCollection<User>();
+                DataTable dtReturn = new DataTable();
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT users.*, user_roles.role_id from users JOIN user_roles on users.id = user_roles.user_id WHERE user_roles.role_id BETWEEN 2 AND 999";
+                    MySqlDataReader Reader = cmd.ExecuteReader();
+                    dtReturn.Load(Reader);
+                    con.Close();
+                }
+                foreach (DataRow row in dtReturn.Rows)
+                {
+                    User user = new User();
+                    user.ID = Convert.ToInt32(row["ID"]);
+                    user.Naam = row["name"].ToString();
+                    user.AchterNaam = row["back_name"].ToString();
+                    user.Email = row["email"].ToString();
+                    user.Adres = row["address"].ToString();
+                    user.TelefoonNummer = row["phone"].ToString();
+                    user.PostCode = row["zipcode"].ToString();
+                    user.Stad = row["city"].ToString();
+                    user.PizzaPunten = Convert.ToInt32(row["pizza_points"]);
+                    ocReturn.Add(user);
+                }
+                return ocReturn;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : medewerkers ophalen mislukt");
+                return null;
+            }
+        }
+        public bool DeleteUser(int UserID)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "DELETE FROM `users` WHERE id = @id ";
+                    cmd.Parameters.AddWithValue("@id", UserID);
+                    MySqlDataReader Reader = cmd.ExecuteReader();
+                    int nrOfRowsAffected = cmd.ExecuteNonQuery();
+                    succes = (nrOfRowsAffected != 0);
+                    con.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : User Delete mislukt");
+            }
+            return succes;
+        }
+        public User LoadUser(int userid)
+        {
+            try
+            {
+                User user = new User();
+                DataTable DTroleid = new DataTable();
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT * FROM users WHERE id = @personid";
+                    cmd.Parameters.AddWithValue("@personid", userid);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    DTroleid.Load(read);
 
+                    foreach (DataRow row in DTroleid.Rows)
+                    {
+                        user.ID = Convert.ToInt32(row["id"].ToString());
+                        user.Naam = row["name"].ToString();
+                        user.AchterNaam = row["back_name"].ToString();
+                        user.Email = row["email"].ToString();
+                        user.PassWord = row["password"].ToString();
+                        user.Adres = row["address"].ToString();
+                        user.TelefoonNummer = row["phone"].ToString();
+                        user.PostCode = row["zipcode"].ToString();
+                        user.Stad = row["city"].ToString();
+                        user.PizzaPunten = Convert.ToInt32(row["pizza_points"].ToString());
+                    }
+                    return user;
+                };
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : role id ophalen is mislukt");
+                return null;
+            }
+        }
+        public bool UpdateUser(string id, string Naam, string Achternaam, string Email, string Wachtwoord, string Adres, string Telefoon, string Postcode, string Stad, string PizzaPunten)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = "UPDATE `users` SET `name` = @name, `back_name` = @back_name, `email` = @email, `password` = @password, `address` = @address, `phone`= @phone, `zipcode` = @zipcode, `city` = @city, `pizza_points` = @pizza_points  WHERE `users`.`id` = @id; ";
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@name", Naam);
+                    command.Parameters.AddWithValue("@back_name", Achternaam);
+                    command.Parameters.AddWithValue("@email", Email);
+                    command.Parameters.AddWithValue("@password", Wachtwoord);
+                    command.Parameters.AddWithValue("@address", Adres);
+                    command.Parameters.AddWithValue("@phone", Telefoon);
+                    command.Parameters.AddWithValue("@zipcode", Postcode);
+                    command.Parameters.AddWithValue("@city", Stad);
+                    command.Parameters.AddWithValue("@pizza_points", PizzaPunten);
+                    int nrOfRowsAffected = command.ExecuteNonQuery();
+                    succes = (nrOfRowsAffected != 0);
+                    return succes;
+                };
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : user update is mislukt");
+                return false;
+            }
+            
+        }
     }
 }

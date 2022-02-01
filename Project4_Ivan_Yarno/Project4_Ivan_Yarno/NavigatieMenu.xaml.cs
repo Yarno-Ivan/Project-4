@@ -103,7 +103,9 @@ namespace Project4_Ivan_Yarno
 
         private void BtBeheerKlant_Click(object sender, RoutedEventArgs e)
         {
-
+            BeheerKlanten win = new BeheerKlanten();
+            win.Show();
+            this.Close();
         }
     }
 }
