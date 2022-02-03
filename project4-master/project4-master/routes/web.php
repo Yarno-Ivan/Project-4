@@ -24,7 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/index', function () {
-   return view('customers.index');
+    return view('customers.index');
 });
 Route::get('/', function () {
     return view('guests.index');
@@ -37,11 +37,11 @@ Route::get('/overons', function () {
 });
 
 Route::get('/betalen', [PizzasController::class, 'index2'])->name('guests.betalen');
+Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
 
-Route::get('/menu', [\App\Http\Controllers\ProductController::class, 'index'])
-    ->name('products.index');
-Route::post('/menu', [\App\Http\Controllers\CartController::class, 'store'])
-    ->name('cart.store');
+Route::get('/menu', [PizzasController::class, 'index'])->name('guests.menu');
+Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
+Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {
