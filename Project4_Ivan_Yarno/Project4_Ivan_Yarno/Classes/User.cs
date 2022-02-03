@@ -25,13 +25,18 @@ namespace Project4_Ivan_Yarno.Classes
         private string stad;
         private int pizzapunten;
         private string password;
+        private int roleid;
 
         public int ID
         {
             get { return id; }
             set { id = value; }
         }
-
+        public int RoleID
+        {
+            get { return roleid; }
+            set { roleid = value; }
+        }
         public string Naam
         {
             get { return naam; }
@@ -42,7 +47,6 @@ namespace Project4_Ivan_Yarno.Classes
             get { return password; }
             set { password = value; }
         }
-
         public string AchterNaam
         {
             get { return achternaam; }
@@ -52,37 +56,31 @@ namespace Project4_Ivan_Yarno.Classes
         {
             get { return naam + " " + achternaam; }
         }
-
         public string Email
         {
             get { return email; }
             set { email = value; }
         }
-
         public string Adres
         {
             get { return adres; }
             set { adres = value; }
         }
-
         public string TelefoonNummer
         {
             get { return telefoonnummer; }
             set { telefoonnummer = value; }
         }
-
         public string PostCode
         {
             get { return postcode; }
             set { postcode = value; }
         }
-
         public string Stad
         {
             get { return stad; }
             set { stad = value; }
         }
-
         public int PizzaPunten
         {
             get { return pizzapunten; }

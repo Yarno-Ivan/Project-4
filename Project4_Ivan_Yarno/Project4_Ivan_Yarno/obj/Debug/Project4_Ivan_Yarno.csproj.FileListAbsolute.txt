@@ -53,3 +53,9 @@ C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Pro
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerKlanten.baml
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditKlanten.g.cs
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditKlanten.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerPersoneel.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerPersoneel.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditMedewerker.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditMedewerker.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\CreateMedewerker.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\CreateMedewerker.baml

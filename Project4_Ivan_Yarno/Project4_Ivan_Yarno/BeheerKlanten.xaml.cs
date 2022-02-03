@@ -86,7 +86,6 @@ namespace Project4_Ivan_Yarno
             {
                 MessageBox.Show("selecteer eerst een klant voordat u op edit klikt");
             }
-            
         }
     }
 

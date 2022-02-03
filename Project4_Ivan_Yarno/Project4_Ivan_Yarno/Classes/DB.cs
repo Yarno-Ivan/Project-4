@@ -75,6 +75,58 @@ namespace Project4_Ivan_Yarno.Classes
             }
            
         }
+        public User GetUserByMail(string email)
+        {
+            try
+            {
+                User user = new User();
+                DataTable DTid = new DataTable();
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT * FROM users WHERE email = @email";
+                    cmd.Parameters.AddWithValue("@email", email);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    DTid.Load(read);
+
+                    foreach (DataRow row in DTid.Rows)
+                    {
+                        user.ID = Convert.ToInt32(row["id"].ToString());
+                    }
+                    return user;
+                };
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : getuserbymail id ophalen is mislukt");
+                return null;
+            }
+        }
+        public bool SetUserRoleID(int personid, int roleid)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = "UPDATE user_roles SET role_id = @roleid  WHERE user_roles.user_id = @id;";
+                    command.Parameters.AddWithValue("@id", personid);
+                    command.Parameters.AddWithValue("@roleid", roleid);
+                    int nrOfRowsAffected = command.ExecuteNonQuery();
+                    succes = (nrOfRowsAffected != 0);
+                    return succes;
+                };
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : user set role update is mislukt");
+                return false;
+            }
+
+        }
         public ObservableCollection<Order> GetAllOrders()
         {
             try
@@ -270,7 +322,7 @@ namespace Project4_Ivan_Yarno.Classes
                 return null;
             }
         }
-        public bool DeleteUser(int UserID)
+        public void DeleteUser(int UserID)
         {
             bool succes = false;
             try
@@ -282,8 +334,6 @@ namespace Project4_Ivan_Yarno.Classes
                     cmd.CommandText = "DELETE FROM `users` WHERE id = @id ";
                     cmd.Parameters.AddWithValue("@id", UserID);
                     MySqlDataReader Reader = cmd.ExecuteReader();
-                    int nrOfRowsAffected = cmd.ExecuteNonQuery();
-                    succes = (nrOfRowsAffected != 0);
                     con.Close();
                 }
             }
@@ -291,7 +341,6 @@ namespace Project4_Ivan_Yarno.Classes
             {
                 MessageBox.Show("DataBase : User Delete mislukt");
             }
-            return succes;
         }
         public User LoadUser(int userid)
         {
@@ -303,7 +352,7 @@ namespace Project4_Ivan_Yarno.Classes
                 {
                     con.Open();
                     MySqlCommand cmd = con.CreateCommand();
-                    cmd.CommandText = "SELECT * FROM users WHERE id = @personid";
+                    cmd.CommandText = "SELECT * FROM users INNER JOIN user_roles ON users.ID = @personid AND user_roles.user_id = @personid";
                     cmd.Parameters.AddWithValue("@personid", userid);
                     MySqlDataReader read = cmd.ExecuteReader();
                     DTroleid.Load(read);
@@ -320,6 +369,7 @@ namespace Project4_Ivan_Yarno.Classes
                         user.PostCode = row["zipcode"].ToString();
                         user.Stad = row["city"].ToString();
                         user.PizzaPunten = Convert.ToInt32(row["pizza_points"].ToString());
+                        user.RoleID = Convert.ToInt32(row["role_id"]);
                     }
                     return user;
                 };
@@ -339,7 +389,7 @@ namespace Project4_Ivan_Yarno.Classes
                 {
                     con.Open();
                     MySqlCommand command = con.CreateCommand();
-                    command.CommandText = "UPDATE `users` SET `name` = @name, `back_name` = @back_name, `email` = @email, `password` = @password, `address` = @address, `phone`= @phone, `zipcode` = @zipcode, `city` = @city, `pizza_points` = @pizza_points  WHERE `users`.`id` = @id; ";
+                    command.CommandText = "UPDATE `users` SET `name` = @name, `back_name` = @back_name, `email` = @email, `password` = @password, `address` = @address, `phone` = @phone, `zipcode` = @zipcode, `city` = @City, `pizza_points` = @pizza_points WHERE `users`.`id` = @id";
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@name", Naam);
                     command.Parameters.AddWithValue("@back_name", Achternaam);
@@ -352,15 +402,44 @@ namespace Project4_Ivan_Yarno.Classes
                     command.Parameters.AddWithValue("@pizza_points", PizzaPunten);
                     int nrOfRowsAffected = command.ExecuteNonQuery();
                     succes = (nrOfRowsAffected != 0);
-                    return succes;
-                };
+                }
+                return succes;
             }
             catch (Exception)
             {
                 MessageBox.Show("DataBase : user update is mislukt");
                 return false;
+            } 
+        }
+        public bool InsertUser(string Naam, string Achternaam, string Email, string Wachtwoord, string Adres, string Telefoon, string Postcode, string Stad, string PizzaPunten)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = "INSERT INTO `users` (`name`, `back_name`, `email`, `password`, `address`, `phone`, `zipcode`, `city`, `pizza_points`, `remember_token`, `created_at`, `updated_at`) VALUES (@name,@back_name,@email,@password,@address,@phone,@zipcode,@city,@pizza_points);";
+                    command.Parameters.AddWithValue("@name", Naam);
+                    command.Parameters.AddWithValue("@back_name", Achternaam);
+                    command.Parameters.AddWithValue("@email", Email);
+                    command.Parameters.AddWithValue("@password", Wachtwoord);
+                    command.Parameters.AddWithValue("@address", Adres);
+                    command.Parameters.AddWithValue("@phone", Telefoon);
+                    command.Parameters.AddWithValue("@zipcode", Postcode);
+                    command.Parameters.AddWithValue("@city", Stad);
+                    command.Parameters.AddWithValue("@pizza_points", PizzaPunten);
+                    int nrOfRowsAffected = command.ExecuteNonQuery();
+                    succes = (nrOfRowsAffected != 0);
+                }
+                return succes;
             }
-            
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : user insert is mislukt");
+                return false;
+            }
         }
     }
 }

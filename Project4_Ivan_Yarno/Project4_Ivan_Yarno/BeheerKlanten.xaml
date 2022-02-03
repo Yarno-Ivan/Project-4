@@ -28,6 +28,7 @@
                         <TextBlock Text="{Binding FullName}" Margin="0,0,10,0"/>
                         <TextBlock Text="{Binding Email}" Margin="0,0,10,0"/>
                         <TextBlock Text="{Binding TelefoonNummer}" Margin="0,0,10,0"/>
+                        <TextBlock Text="{Binding PizzaPunten}" Margin="0,0,10,0"/>
                         <Button Content="Edit" Click="Edit_Click" Margin="0,0,10,0"/>
                         <Button Content="Delete" Click="Del_Click" Margin="0,0,10,0"/>
                     </StackPanel>

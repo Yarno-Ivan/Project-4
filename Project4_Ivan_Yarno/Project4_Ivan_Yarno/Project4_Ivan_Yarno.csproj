@@ -107,6 +107,12 @@
     <Compile Include="BeheerKlanten.xaml.cs">
       <DependentUpon>BeheerKlanten.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BeheerPersoneel.xaml.cs">
+      <DependentUpon>BeheerPersoneel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BeheerPizza.xaml.cs">
+      <DependentUpon>BeheerPizza.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bereiding.xaml.cs">
       <DependentUpon>Bereiding.xaml</DependentUpon>
     </Compile>
@@ -119,8 +125,14 @@
     <Compile Include="Classes\Pizza.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\Vooraad.cs" />
+    <Compile Include="CreateMedewerker.xaml.cs">
+      <DependentUpon>CreateMedewerker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditKlanten.xaml.cs">
       <DependentUpon>EditKlanten.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditMedewerker.xaml.cs">
+      <DependentUpon>EditMedewerker.xaml</DependentUpon>
     </Compile>
     <Compile Include="NavigatieMenu.xaml.cs">
       <DependentUpon>NavigatieMenu.xaml</DependentUpon>
@@ -136,6 +148,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="BeheerPersoneel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BeheerPizza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Bereiding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -144,7 +164,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreateMedewerker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditKlanten.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditMedewerker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

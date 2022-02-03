@@ -23,8 +23,11 @@ namespace Project4_Ivan_Yarno
     /// </summary>
     public partial class EditKlanten : Window
     {
+        private string salt;
+        private string hash;
         DB db = new DB();
         private int klantid;
+        int roleid = 1;
         private User klant;
 
         public User Klant
@@ -45,12 +48,32 @@ namespace Project4_Ivan_Yarno
             TbVoornaam.Text = Klant.Naam.ToString();
             TbAchternaam.Text = Klant.AchterNaam.ToString();
             TbEmail.Text = Klant.Email.ToString();
-            TbWachtwoord.Text = Klant.PassWord.ToString();
             TbAdres.Text = Klant.Adres.ToString();
             TbTelefoon.Text = Klant.TelefoonNummer.ToString();
             TbPostcode.Text = Klant.PostCode.ToString();
             TbStad.Text = Klant.Stad.ToString();
             TbPunten.Text = Klant.PizzaPunten.ToString();
+            switch (Klant.RoleID)
+            {
+                case 1:
+                    CbRoleID.Text = "Klant";
+                    break;
+                case 2:
+                    CbRoleID.Text = "Balie";
+                    break;
+                case 3:
+                    CbRoleID.Text = "Bereiding";
+                    break;
+                case 4:
+                    CbRoleID.Text = "Bezorging";
+                    break;
+                case 5:
+                    CbRoleID.Text = "Management";
+                    break;
+                case 999:
+                    CbRoleID.Text = "Admin";
+                    break;
+            }
         }
         private void BtCancel_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +82,10 @@ namespace Project4_Ivan_Yarno
 
         private void BtOpslaan_Click(object sender, RoutedEventArgs e)
         {
-            if (db.UpdateUser(TbID.Text, TbVoornaam.Text, TbAchternaam.Text, TbEmail.Text, TbWachtwoord.Text, TbAdres.Text, TbTelefoon.Text, TbPostcode.Text, TbStad.Text, TbPunten.Text))
+            salt = BCrypt.Net.BCrypt.GenerateSalt();
+            hash = BCrypt.Net.BCrypt.HashPassword(TbWachtwoord.Text, salt);
+            
+            if (db.UpdateUser(TbID.Text, TbVoornaam.Text, TbAchternaam.Text, TbEmail.Text, hash, TbAdres.Text, TbTelefoon.Text, TbPostcode.Text, TbStad.Text, TbPunten.Text))
             {
                 MessageBox.Show($"Klant : {Klant.FullName} aangepast");
             }
@@ -68,6 +94,35 @@ namespace Project4_Ivan_Yarno
                 MessageBox.Show($"Aanpassen van {Klant.FullName} mislukt");
             }
             this.Close();
+        }
+
+        private void CbRoleID_Change(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem cbi = (ComboBoxItem)CbRoleID.SelectedItem;
+            string selectedText = cbi.Content.ToString();
+            switch (selectedText)
+            {
+                case "Klant":
+                    roleid = 1;
+                    break;
+                case "Balie":
+                    roleid = 2;
+                    break;
+                case "Bereiding":
+                    roleid = 3;
+                    break;
+                case "Bezorging":
+                    roleid = 4;
+                    break;
+                case "Management":
+                    roleid = 5;
+                    break;
+                case "Admin":
+                    roleid = 999;
+                    break;
+            }
+            db.SetUserRoleID(Convert.ToInt32(TbID.Text), roleid);
+
         }
     }
 }

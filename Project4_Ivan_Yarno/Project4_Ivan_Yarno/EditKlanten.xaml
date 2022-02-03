@@ -38,6 +38,8 @@
             <RowDefinition Height="0.2*"/>
             <RowDefinition/>
             <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
         <TextBlock VerticalAlignment="Center" Grid.Row="1" Grid.Column="1" Text="ID :"/>
         <TextBlock VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Text="Voornaam :"/>
@@ -49,8 +51,9 @@
         <TextBlock VerticalAlignment="Center" Grid.Row="15" Grid.Column="1" Text="Postcode :"/>
         <TextBlock VerticalAlignment="Center" Grid.Row="17" Grid.Column="1" Text="Stad :"/>
         <TextBlock VerticalAlignment="Center" Grid.Row="19" Grid.Column="1" Text="Punten :"/>
+        <TextBlock VerticalAlignment="Center" Grid.Row="21" Grid.Column="1" Text="Rol :"/>
 
-        <TextBox Grid.Row="1" Grid.Column="3" x:Name="TbID"/>
+        <TextBox Grid.Row="1" Grid.Column="3" x:Name="TbID" IsReadOnly="True"/>
         <TextBox Grid.Row="3" Grid.Column="3" x:Name="TbVoornaam"/>
         <TextBox Grid.Row="5" Grid.Column="3" x:Name="TbAchternaam"/>
         <TextBox Grid.Row="7" Grid.Column="3" x:Name="TbEmail"/>
@@ -60,8 +63,16 @@
         <TextBox Grid.Row="15" Grid.Column="3" x:Name="TbPostcode"/>
         <TextBox Grid.Row="17" Grid.Column="3" x:Name="TbStad"/>
         <TextBox Grid.Row="19" Grid.Column="3" x:Name="TbPunten"/>
-
-        <Button Grid.Column="1" Grid.Row="21" Content="Cancel" Click="BtCancel_Click"/>
-        <Button Grid.Column="3" Grid.Row="21" Content="Gegevens Opslaan" Click="BtOpslaan_Click"/>
+        <ComboBox Grid.Row="21" Grid.Column="3" x:Name="CbRoleID" SelectionChanged="CbRoleID_Change">
+            <ComboBoxItem Content="Klant"/>
+            <ComboBoxItem Content="Balie"/>
+            <ComboBoxItem Content="Bereiding"/>
+            <ComboBoxItem Content="Bezorging"/>
+            <ComboBoxItem Content="Management"/>
+            <ComboBoxItem Content="Admin"/>
+        </ComboBox>
+        
+        <Button Grid.Column="1" Grid.Row="23" Content="Cancel" Click="BtCancel_Click"/>
+        <Button Grid.Column="3" Grid.Row="23" Content="Gegevens Opslaan" Click="BtOpslaan_Click"/>
     </Grid>
 </Window>

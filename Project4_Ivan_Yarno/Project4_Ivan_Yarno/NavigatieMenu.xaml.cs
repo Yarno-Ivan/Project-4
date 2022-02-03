@@ -107,5 +107,12 @@ namespace Project4_Ivan_Yarno
             win.Show();
             this.Close();
         }
+
+        private void BtBeheerPersoneel_Click(object sender, RoutedEventArgs e)
+        {
+            BeheerPersoneel win = new BeheerPersoneel();
+            win.Show();
+            this.Close();
+        }
     }
 }
