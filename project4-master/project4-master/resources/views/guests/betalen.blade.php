@@ -17,7 +17,7 @@
     
     <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/">Home</a>
-      <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600" href="/menu">Menu</a>
+      <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600" href="/gegevens">Menu</a>
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-400 hover:text-gray-700 transition-colors duration-300" href="/overons" >Over Ons</a>
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/Contact">Contact</a>
       <a class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300" href="/login">Login</a>
@@ -65,14 +65,6 @@
 
       <div id="summary" class="w-1/4 px-8 py-10">
         <h1 class="font-semibold text-2xl border-b pb-8">Afrekenen </h1>
-        <div class="py-10">
-          <label for="promo" class="font-semibold inline-block mb-3 text-sm ">Naam</label>
-          <input type="text" id="promo" placeholder="Vul uw naam in" class="p-2 text-sm w-full">
-          <label for="promo" class="font-semibold inline-block mb-3 text-sm ">Adress</label>
-          <input type="text" id="promo" placeholder="Vul uw adress in" class="p-2 text-sm w-full">
-          <label for="promo" class="font-semibold inline-block mb-3 text-sm">Email</label>
-          <input type="text" id="promo" placeholder="Vul uw Email in" class="p-2 text-sm w-full">
-        </div>
         <div>
           <label class="font-medium inline-block mb-3 text-sm ">Selecteer uw bank</label>
           <select class="block p-2 text-gray-600 w-full text-sm">

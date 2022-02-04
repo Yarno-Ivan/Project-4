@@ -5,10 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pizzas extends Model
+class Bestellingen extends Model
 {
     use HasFactory;
+
+
         /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table ='bestellingen';
+
+
+
+      /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+            /**
      * The attributes that are mass assignable.
      *
      * @var string[]
@@ -22,8 +39,7 @@ class Pizzas extends Model
      */
     protected $guarded = ['*', 'id'];
 
-
-    public function Orders(){
-        return $this->belongsToManny(Bestellingen::class);
+    public function Pizzas(){
+        return $this->belongsToManny(Pizzas::class);
     }
 }

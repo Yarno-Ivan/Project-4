@@ -1,14 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\User;
 use App\Models\Pizzas;
-use App\Models\Bestellingen;
+use App\Models\Gegevens;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class PizzasController extends Controller
+class GegevensController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,13 +14,8 @@ class PizzasController extends Controller
      */
     public function index()
     {
-        return view("guests.menu", ['pizzas' => Pizzas::all()]);
+        return view("guests.Gegevens");
     }
-    public function index2()
-    {
-        return view("guests.betalen", ['pizzas' => Pizzas::all()]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -42,8 +34,8 @@ class PizzasController extends Controller
      */
     public function store(Request $request)
     {
-        Bestellingen::create($request->except('_token'));
-        return redirect()->route('guests.betalen');
+        Gegevens::create($request->except('_token'));
+        return redirect()->route('guests.menu');    
     }
 
     /**
@@ -54,7 +46,7 @@ class PizzasController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**
@@ -65,7 +57,7 @@ class PizzasController extends Controller
      */
     public function edit($id)
     {
-        return view("guests.edit", ['pizzas' => Pizzas::find($id)]);
+        //
     }
 
     /**
@@ -77,8 +69,7 @@ class PizzasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Pizzas::find($id)->update($request->except(['id', '_token']));
-        return redirect()->route('guests.menu');
+        //
     }
 
     /**

@@ -17,7 +17,7 @@
     </div>
     <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
       <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600" href="/">Home</a>
-      <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/menu">Menu</a>
+      <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/gegevens">Menu</a>
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-400 hover:text-gray-700 transition-colors duration-300" href="/overons" >Over Ons</a>
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/Contact">Contact</a>
       <a class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300" href="/login">Login</a>
@@ -45,7 +45,7 @@
     <br>
     <br>
     <br>
-    <a class="text-sm font-bold tracking-wide bg-indigo-600 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline  " href="/menu" >Bekijk ons menu</a> 
+    <a class="text-sm font-bold tracking-wide bg-indigo-600 text-gray-100 p-3 rounded-lg focus:outline-none focus:shadow-outline  " href="/gegevens" >Bekijk ons menu</a> 
   </div>
 
   <div class="my-px px-px w-1/2 overflow-hidden sm:my-6 sm:px-6">

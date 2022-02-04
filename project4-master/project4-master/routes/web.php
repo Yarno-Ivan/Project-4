@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PizzasController;
+use App\Http\Controllers\GegevensController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -37,11 +38,14 @@ Route::get('/overons', function () {
 });
 
 Route::get('/betalen', [PizzasController::class, 'index2'])->name('guests.betalen');
-Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
 
-Route::get('/menu', [PizzasController::class, 'index'])->name('guests.menu');
-Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
-Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
+//Route::post('/menu', [PizzasController::class, 'store'])->name('guests.store');
+
+Route::get('/gegevens', [GegevensController::class, 'index'])->name('guests.Gegevens');
+Route::post('/gegevens', [GegevensController::class, 'store'])->name('guests.store');
+Route::get('/gegevens/menu', [PizzasController::class, 'index'])->name('guests.menu');
+//Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
+//Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', function () {

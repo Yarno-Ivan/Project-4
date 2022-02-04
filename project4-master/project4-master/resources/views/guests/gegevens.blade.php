@@ -18,7 +18,7 @@
     
     <div class="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/">Home</a>
-      <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600" href="/gegevens">Menu</a>
+      <a class="p-2 lg:px-4 md:mx-2 text-white rounded bg-indigo-600" href="/menu">Menu</a>
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-400 hover:text-gray-700 transition-colors duration-300" href="/overons">Over Ons</a>
       <a class="p-2 lg:px-4 md:mx-2 text-gray-600 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300" href="/Contact">Contact</a>
       <a class="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300" href="/login">Login</a>
@@ -27,40 +27,22 @@
   </div>
 </nav>
 <body class="bg-gray-100">
-
-<div class="font-bold text-3xl flex justify-center items-center ">Welkom op onze Pizza Menu pagina</div>
-</br>
-<div class="flex text-2xl font-bold py-2 px-4 flex-1 items-center flex justify-evenly">
-  <a>Pizzas</a>
-  <a>Info</a>
-  <a>Prijs</a>
-  <a>Pas uw Pizza aan</a>
-  <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
-  <div class="flex flex-row-reverse ml-2 w-full">
-    <div slot="icon" class="relative">
-        <svg onclick="window.location.href = '/betalen';" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart w-6 h-6 mt-2">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
-    </div>
-  </div>
- </div>
-</div>
-</br>
-@foreach ($pizzas as $pizza)
-<div class="flex flex-wrap overflow-hidden xl:-mx-8">
-  <form class="flex justify-evenly items-center flex-1" action="{{ route('guests.store', [$pizza->id]) }}" method="POST">
-    @csrf
-    <a>{{$pizza->naam}}</a>  
-    <a>{{$pizza->info}}</a> 
-    <a>{{$pizza->prijs}}</a>
-    <a href="/menu/{{$pizza->id}}/edit">Aanpassen</a>
-    <button type="submit">voeg toe</a>
-  </form>
-</div>
 <br>
-@endforeach
+<br>
+<div class="font-bold text-3xl flex justify-center items-center ">Welkom voer uw gegevens in voordat u kan bestellen</div>
+</br>
+    <form  action="{{ route('guests.store') }}" class="w-1/3 m-auto" method="Post">
+        @csrf
+        <label class="font-semibold inline-block mb-3 text-sm ">Naam</label>
+        <input name="naam"  type="text" placeholder="Vul uw naam in" class="p-2 text-sm w-full">
+        <label class="font-semibold inline-block mb-3 text-sm ">Adress</label>
+        <input name="adress" type="text" placeholder="Vul uw adress in" class="p-2 text-sm w-full">
+        <label class="font-semibold inline-block mb-3 text-sm">Email</label>
+        <input name="email" type="text" placeholder="Vul uw Email in" class="p-2 text-sm w-full">
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="bg-indigo-600 font-semibold py-3 text-sm text-white uppercase w-full">stuur</button>
+    </form>
 </body>
 </html>
-

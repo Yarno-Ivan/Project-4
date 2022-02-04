@@ -15,13 +15,15 @@ class Bestellingen extends Seeder
     public function run()
     {
         DB::table('bestellingen')->insert([
-            'id-klant' => '1',
-            'totaalprijs' => '10',
+            'naam' => 'henk',
+            'adress' => 'ergensopstraatbuiten',
+            'email' => 'henk@water.com',
             'status' => 'Besteld',
         ]);
         DB::table('bestellingen')->insert([
-            'id-klant' => '2',
-            'totaalprijs' => '11',
+            'naam' => 'henk',
+            'adress' => 'ergensopstraat',
+            'email' => 'h@waters.nl',
             'status' => 'Besteld',
         ]);
     }
