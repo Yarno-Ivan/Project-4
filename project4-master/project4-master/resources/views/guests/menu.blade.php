@@ -34,6 +34,7 @@
   <a>Pizzas</a>
   <a>Info</a>
   <a>Prijs</a>
+  <a>Hoeveel</a>
   <a>Maat</a>
   <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
   <div class="flex flex-row-reverse ml-2 w-full">
@@ -48,6 +49,7 @@
  </div>
 </div>
 </br>
+
 @foreach ($pizzas as $pizza)
 <div class="flex flex-wrap overflow-hidden xl:-mx-8">
   <form class="flex justify-evenly items-center flex-1" action="{{ route('pizza.store' ,['bestellingid'=>$bestellingen->id ,'pizzaid'=>$pizza->id] ) }}" method="POST">
@@ -55,6 +57,7 @@
     <a>{{$pizza->naam}}</a>  
     <a>{{$pizza->info}}</a> 
     <a>{{$pizza->prijs}}</a>
+    <input type="number" class="w-24"></input>
     <select>
     <option>25cm</option>
     <option>30cm</option>
