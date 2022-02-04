@@ -34,8 +34,8 @@ class GegevensController extends Controller
      */
     public function store(Request $request)
     {
-        Gegevens::create($request->except('_token'));
-        return redirect()->route('guests.menu');    
+        $Bestellingen = Gegevens::create($request->except('_token'));
+        return redirect()->route('guests.menu', ['bestellingen'=>$Bestellingen]);    
     }
 
     /**

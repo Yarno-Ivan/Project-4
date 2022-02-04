@@ -16,6 +16,12 @@ class Pizzas extends Model
     protected $fillable = [];
 
     /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = "pizzas";
+    /**
      * The attributes that aren't mass assignable.
      *
      * @var string[]|bool
@@ -24,6 +30,6 @@ class Pizzas extends Model
 
 
     public function Orders(){
-        return $this->belongsToManny(Bestellingen::class);
+        return $this->belongsToMany(Bestellingen::class);
     }
 }

@@ -20,7 +20,6 @@ class orderdpizza extends Seeder
             ['bestelling_id' => 2, 'pizza_id' => 1],
 
         ];
-
         foreach ($bestellingpizza as $bestellingpizza) {
             orderdpizzas::create($bestellingpizza);
         }

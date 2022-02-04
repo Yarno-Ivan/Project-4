@@ -17,8 +17,6 @@ class Bestellingen extends Model
      */
     protected $table ='bestellingen';
 
-
-
       /**
      * Indicates if the model should be timestamped.
      *
@@ -40,6 +38,6 @@ class Bestellingen extends Model
     protected $guarded = ['*', 'id'];
 
     public function Pizzas(){
-        return $this->belongsToManny(Pizzas::class);
+        return $this->belongsToMany(Pizzas::class);
     }
 }

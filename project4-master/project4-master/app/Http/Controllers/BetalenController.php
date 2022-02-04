@@ -1,15 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\User;
 use App\Models\Pizzas;
 use App\Models\Bestellingen;
-use App\Models\orderdpizzas;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class PizzasController extends Controller
+class BetalenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,8 @@ class PizzasController extends Controller
      */
     public function index()
     {
-        return view("guests.menu", ['pizzas' => Pizzas::all()]);
-    }
 
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -38,12 +33,9 @@ class PizzasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $bestellingid , $pizzaid)
+    public function store(Request $request)
     {
-        $bestelling = Bestellingen::find($bestellingid);
-        $pizza = Pizzas::find($pizzaid);
-        Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
-        return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
+        //
     }
 
     /**
@@ -54,8 +46,8 @@ class PizzasController extends Controller
      */
     public function show($id)
     {
-        
-        return view("guests.menu", ['bestellingen' => Bestellingen::find($id),'pizzas' => Pizzas::all()]);
+        $Bestelling = Bestellingen::find($id);
+        return view("guests.betalen", ['bestelling'=>$Bestelling ,'pizzas' => Pizzas::all()]);
     }
 
     /**
@@ -66,7 +58,7 @@ class PizzasController extends Controller
      */
     public function edit($id)
     {
-        return view("guests.edit", ['pizzas' => Pizzas::find($id)]);
+        //
     }
 
     /**
@@ -78,8 +70,7 @@ class PizzasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Pizzas::find($id)->update($request->except(['id', '_token']));
-        return redirect()->route('guests.menu');
+        //
     }
 
     /**
