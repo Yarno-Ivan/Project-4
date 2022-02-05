@@ -42,8 +42,8 @@ class PizzasController extends Controller
     {
         $bestelling = Bestellingen::find($bestellingid);
         $pizza = Pizzas::find($pizzaid);
-        $request->session()->flash('success', 'Form has been saved');
         Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
+        $request->session()->flash('success');
         return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
     }
 
@@ -91,6 +91,6 @@ class PizzasController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -43,6 +43,8 @@ Route::post('/gegevens', [GegevensController::class, 'store'])->name('guests.sto
 Route::get('/gegevens/{bestellingen}/menu', [PizzasController::class, 'show'])->name('guests.menu');
 Route::post('/gegevens/{bestellingid}/menu/{pizzaid}', [PizzasController::class, 'store'])->name('pizza.store');
 Route::get('/betalen/{bestellingid}', [BetalenController::class, 'show'])->name('guests.betalen');
+Route::delete('/betalen/{bestellingid}', [BetalenController::class, 'destroy'])->name('guests.destroy');
+
 //Route::get('/menu/{id}/edit', [PizzasController::class, 'edit'])->name('guests.aanpassen');
 //Route::put('/menu/{id}', [PizzasController::class, 'update'])->name('guests.update');
 

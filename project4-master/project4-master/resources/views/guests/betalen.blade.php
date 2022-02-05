@@ -46,15 +46,19 @@
               <span class="font-bold text-sm">Pizza</span>
               <br>  
               <span class=" text-sm">{{$pizza->naam}}</span>  <!-- Naam pizza -->
-              <br>  
-              <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Verwijder</a>  
+              <br>
+              <form action="{{ route('guests.destroy', $bestelling->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Verwijder</button>
+              </form>  
             </div>
           </div>
           <div class="flex justify-center w-1/5">
             <label>1</label><!-- hoeveel -->
           </div>
           <span class="text-center w-1/5 font-semibold text-sm">€ {{$pizza->prijs}}</span> <!-- Prijs -->
-          <span class="text-center w-1/5 font-semibold text-sm">€ 400.00</span> <!-- Totaal prijs -->
+          <span class="text-center w-1/5 font-semibold text-sm">€ </span> <!-- Totaal prijs -->
         </div>
         @endforeach
         <a href="/gegevens/{{$bestelling->id}}/menu" class="flex font-semibold text-indigo-600 text-sm mt-10">
