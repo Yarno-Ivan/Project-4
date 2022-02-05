@@ -29,6 +29,7 @@
 <body class="bg-gray-100">
 
 <div class="font-bold text-3xl flex justify-center items-center ">Welkom op onze Pizza Menu pagina</div>
+  </br>
 </br>
 <div class="flex text-2xl font-bold py-2 px-4 flex-1 items-center flex justify-evenly">
   <a>Pizzas</a>
@@ -49,7 +50,6 @@
  </div>
 </div>
 </br>
-
 @foreach ($pizzas as $pizza)
 <div class="flex flex-wrap overflow-hidden xl:-mx-8">
   <form class="flex justify-evenly items-center flex-1" action="{{ route('pizza.store' ,['bestellingid'=>$bestellingen->id ,'pizzaid'=>$pizza->id] ) }}" method="POST">
@@ -67,7 +67,11 @@
   </form>
 </div>
 <br>
+<br>
 @endforeach
+@if (Session::get('success'))
+<script>alert("Pizza Toegevoegd aan het winkelmandje")</script>
+@endif
 </body>
 </html>
 
