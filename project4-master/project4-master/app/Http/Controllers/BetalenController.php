@@ -81,7 +81,6 @@ class BetalenController extends Controller
      */
     public function destroy($id)
     {
-        $bestelling = Bestellingen::find($id);
-        return view("guests.betalen", ['bestelling'=>$bestelling]); 
+
     }
 }

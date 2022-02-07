@@ -91,6 +91,8 @@ class PizzasController extends Controller
      */
     public function destroy($id)
     {
-
+        $bestelling = Bestellingen::find($id);
+        $bestelling->Pizzas()->detach();
+        return view("guests.betalen", ['bestelling'=>$bestelling]); 
     }
 }
