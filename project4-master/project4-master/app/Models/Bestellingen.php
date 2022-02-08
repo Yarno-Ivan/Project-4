@@ -40,4 +40,16 @@ class Bestellingen extends Model
     public function Pizzas(){
         return $this->belongsToMany(Pizzas::class);
     }
+
+    public function totalPrice()
+    {
+        $total = 0;
+        foreach($this->pizzas as $pizza)
+        {
+            $total += $pizza->prijs;
+            // * $pizza->pivot->aantal
+        }
+        return $total;
+    }
+    
 }

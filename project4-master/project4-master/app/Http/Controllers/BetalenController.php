@@ -47,7 +47,9 @@ class BetalenController extends Controller
     public function show($id)
     {
         $Bestelling = Bestellingen::find($id);
+        $Bestelling->totalPrice();
         return view("guests.betalen", ['bestelling'=>$Bestelling ,'pizzas' => Pizzas::all()]);
+        
     }
 
     /**

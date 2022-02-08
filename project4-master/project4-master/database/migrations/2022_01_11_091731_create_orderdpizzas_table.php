@@ -18,7 +18,6 @@ class CreateOrderdpizzasTable extends Migration
             $table->unsignedBigInteger('bestellingen_id')->index();
             $table->unsignedBigInteger('pizzas_id')->index();
 
-
             $table->foreign('bestellingen_id')->references('id')->on('bestellingen');
             $table->foreign('pizzas_id')->references('id')->on('pizzas');
 

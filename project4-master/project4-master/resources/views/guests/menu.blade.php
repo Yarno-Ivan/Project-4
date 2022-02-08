@@ -35,8 +35,6 @@
   <a>Pizzas</a>
   <a>Info</a>
   <a>Prijs</a>
-  <a>Hoeveel</a>
-  <a>Maat</a>
   <div class="flex flex-row cursor-pointer truncate p-2 px-4  rounded">
   <div class="flex flex-row-reverse ml-2 w-full">
     <div slot="icon" class="relative">
@@ -57,12 +55,6 @@
     <a>{{$pizza->naam}}</a>  
     <a>{{$pizza->info}}</a> 
     <a>{{$pizza->prijs}}</a>
-    <input type="number" class="w-24"></input>
-    <select>
-    <option>25cm</option>
-    <option>30cm</option>
-    <option>35cm</option>
-    </select>
     <button type="submit">voeg toe</a>
   </form>
 </div>
@@ -70,7 +62,7 @@
 <br>
 @endforeach
 @if (Session::get('success'))
-<script>alert("Pizza Toegevoegd aan het winkelmandje")</script>
+<script>alert("Pizza toegevoegd aan het winkelmandje")</script>
 @endif
 </body>
 </html>

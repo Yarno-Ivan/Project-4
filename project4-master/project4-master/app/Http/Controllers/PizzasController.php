@@ -42,8 +42,8 @@ class PizzasController extends Controller
     {
         $bestelling = Bestellingen::find($bestellingid);
         $pizza = Pizzas::find($pizzaid);
+        //$request->session()->flash('success');
         Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
-        $request->session()->flash('success');
         return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
     }
 
@@ -89,9 +89,9 @@ class PizzasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($bestelling_id)
     {
-        $bestelling = Bestellingen::find($id);
+        $bestelling = Bestellingen::find($bestelling_id);
         $bestelling->Pizzas()->detach();
         return view("guests.betalen", ['bestelling'=>$bestelling]); 
     }

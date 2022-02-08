@@ -58,7 +58,7 @@
             <label>1</label><!-- hoeveel -->
           </div>
           <span class="text-center w-1/5 font-semibold text-sm">€ {{$pizza->prijs}}</span> <!-- Prijs -->
-          <span class="text-center w-1/5 font-semibold text-sm">€ </span> <!-- Totaal prijs -->
+          <span class="text-center w-1/5 font-semibold text-sm">€ {{$pizza->prijs}} </span> <!-- Totaal prijs -->
         </div>
         @endforeach
         <a href="/gegevens/{{$bestelling->id}}/menu" class="flex font-semibold text-indigo-600 text-sm mt-10">
@@ -81,7 +81,7 @@
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm ">
             <span>Totaal</span>
-            <span>€ 600</span>
+            <span>€{{$bestelling->totalPrice()}}</span>
           </div>
           <button class="bg-indigo-600 font-semibold py-3 text-sm text-white uppercase w-full">Betalen</button>
         </div>
