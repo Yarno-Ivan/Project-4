@@ -43,8 +43,10 @@ namespace Project4_Ivan_Yarno
             get { return selectedmedewerker; }
             set { selectedmedewerker = value; OnPropertyChanged(); }
         }
-        public BeheerPersoneel()
+        private int rolid;
+        public BeheerPersoneel(int rolid)
         {
+            this.rolid = rolid;
             DataContext = this;
             InitializeComponent();
             LoadPersoneel();
@@ -92,6 +94,15 @@ namespace Project4_Ivan_Yarno
         {
             CreateMedewerker create = new CreateMedewerker();
             create.ShowDialog();
+            LoadPersoneel();
+
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigatieMenu navigatiemenu = new NavigatieMenu(rolid);
+            navigatiemenu.Show();
+            this.Close();
         }
     }
 }

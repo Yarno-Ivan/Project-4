@@ -59,6 +59,7 @@ C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Pro
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditMedewerker.baml
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\CreateMedewerker.g.cs
 C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\CreateMedewerker.baml
+<<<<<<< Updated upstream
 C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Project4_Ivan_Yarno.csproj.AssemblyReference.cache
 C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerIngredienten.g.cs
 C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerKlanten.g.cs
@@ -122,3 +123,11 @@ C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\D
 C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Project4_Ivan_Yarno.csproj.GenerateResource.cache
 C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Project4_Ivan_Yarno.csproj.CoreCompileInputs.cache
 C:\Users\IvanHau\Laravel\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\Project4_Ivan_Yarno.csproj.CopyComplete
+=======
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerPizza.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\CreatePizza.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditPizza.g.cs
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\BeheerPizza.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\CreatePizza.baml
+C:\Users\yarno\OneDrive - Summacollege\Documenten\School\projecten\Project 4\Project-4\Project4_Ivan_Yarno\Project4_Ivan_Yarno\obj\Debug\EditPizza.baml
+>>>>>>> Stashed changes

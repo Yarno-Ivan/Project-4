@@ -77,8 +77,10 @@ namespace Project4_Ivan_Yarno
             set { ingredienten = value; OnPropertyChanged(); }
         }
         #endregion
-        public Bereiding()
+        private int rolid;
+        public Bereiding(int rolid)
         {
+            this.rolid = rolid;
             InitializeComponent();
             DataContext = this;
             LoadAll();
@@ -103,15 +105,23 @@ namespace Project4_Ivan_Yarno
             string selectedText = cbi.Content.ToString();
             if (db.UpdateStatus(selectedText, SelectedOrder.ID))
             {
-                PizzaLoad();
                 SelectedOrder.Status = selectedText;
                 CBStatus.SelectedValue = "";
                 MessageBox.Show($"Status aangepast");
+                PizzaLoad();
+                LoadAll();
             }
             else
             {
                 MessageBox.Show($"Aanpassen van Status mislukt");
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigatieMenu navigatiemenu = new NavigatieMenu(rolid);
+            navigatiemenu.Show();
+            this.Close();
         }
     }
 }

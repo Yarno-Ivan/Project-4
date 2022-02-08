@@ -43,8 +43,11 @@ namespace Project4_Ivan_Yarno
             get { return selectedklant; }
             set { selectedklant = value; OnPropertyChanged(); }
         }
-        public BeheerKlanten()
+        private int rolid;
+
+        public BeheerKlanten(int rolid)
         {
+            this.rolid = rolid;
             DataContext = this;
             InitializeComponent();
             LoadKlanten();
@@ -86,6 +89,13 @@ namespace Project4_Ivan_Yarno
             {
                 MessageBox.Show("selecteer eerst een klant voordat u op edit klikt");
             }
+        }
+
+        private void Back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigatieMenu navigatiemenu = new NavigatieMenu(rolid);
+            navigatiemenu.Show();
+            this.Close();
         }
     }
 

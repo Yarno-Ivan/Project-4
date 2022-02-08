@@ -146,8 +146,8 @@ namespace Project4_Ivan_Yarno.Classes
                 {
                     Order order = new Order();
                     order.ID = Convert.ToInt32(row["ID"]);
-                    order.KlantID = row["id-klant"].ToString();
-                    order.TotaalPrijs = row["TotaalPrijs"].ToString();
+                    order.Naam = row["naam"].ToString();
+                    order.Email = row["email"].ToString();
                     order.Status = row["Status"].ToString();
                     ocReturn.Add(order);
                 }
@@ -169,7 +169,7 @@ namespace Project4_Ivan_Yarno.Classes
                 {
                     con.Open();
                     MySqlCommand command = con.CreateCommand();
-                    command.CommandText = "SELECT * FROM pizzas INNER JOIN orderd_pizzas ON pizzas.ID = orderd_pizzas.pizza_id AND orderd_pizzas.bestelling_id = @id";
+                    command.CommandText = "SELECT * FROM pizzas INNER JOIN bestellingen_pizzas ON pizzas.ID = bestellingen_pizzas.pizzas_id AND bestellingen_pizzas.bestellingen_id = @id";
                     command.Parameters.AddWithValue("@Id", Idorder);
                     MySqlDataReader reader = command.ExecuteReader();
                     DtPizza.Load(reader);
@@ -178,8 +178,8 @@ namespace Project4_Ivan_Yarno.Classes
                 {
                     OrderdPizza pizza = new OrderdPizza();
                     pizza.ID = Convert.ToInt32(row["id"].ToString());
-                    pizza.BestellingID = Convert.ToInt32(row["bestelling_id"].ToString());
-                    pizza.PizzaID = Convert.ToInt32(row["pizza_id"].ToString());
+                    pizza.BestellingID = Convert.ToInt32(row["bestellingen_id"].ToString());
+                    pizza.PizzaID = Convert.ToInt32(row["pizzas_id"].ToString());
                     pizza.PizzaNaam = row["naam"].ToString();
                     ocReturnpizza.Add(pizza);
                 }
@@ -322,6 +322,38 @@ namespace Project4_Ivan_Yarno.Classes
                 return null;
             }
         }
+        public ObservableCollection<Pizza> GetAllPizza()
+        {
+            try
+            {
+                ObservableCollection<Pizza> ocReturn = new ObservableCollection<Pizza>();
+                DataTable dtReturn = new DataTable();
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT * From pizzas";
+                    MySqlDataReader Reader = cmd.ExecuteReader();
+                    dtReturn.Load(Reader);
+                    con.Close();
+                }
+                foreach (DataRow row in dtReturn.Rows)
+                {
+                    Pizza pizza = new Pizza();
+                    pizza.ID = Convert.ToInt32(row["ID"]);
+                    pizza.Naam = row["naam"].ToString();
+                    pizza.Info = row["info"].ToString();
+                    pizza.Prijs = Convert.ToDouble(row["prijs"]);
+                    ocReturn.Add(pizza);
+                }
+                return ocReturn;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : Pizza's ophalen mislukt");
+                return null;
+            }
+        }
         public void DeleteUser(int UserID)
         {
             bool succes = false;
@@ -340,6 +372,26 @@ namespace Project4_Ivan_Yarno.Classes
             catch (Exception)
             {
                 MessageBox.Show("DataBase : User Delete mislukt");
+            }
+        }
+        public void DeletePizza(int PizzaID)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "DELETE FROM `pizzas` WHERE id = @id ";
+                    cmd.Parameters.AddWithValue("@id", PizzaID);
+                    MySqlDataReader Reader = cmd.ExecuteReader();
+                    con.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : pizza Delete mislukt");
             }
         }
         public User LoadUser(int userid)
@@ -380,6 +432,37 @@ namespace Project4_Ivan_Yarno.Classes
                 return null;
             }
         }
+        public Pizza LoadPizza(int pizzaid)
+        {
+            try
+            {
+                Pizza pizza = new Pizza();
+                DataTable DTroleid = new DataTable();
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand cmd = con.CreateCommand();
+                    cmd.CommandText = "SELECT * FROM Pizzas WHERE pizzas.id = @pizzaid";
+                    cmd.Parameters.AddWithValue("@pizzaid", pizzaid);
+                    MySqlDataReader read = cmd.ExecuteReader();
+                    DTroleid.Load(read);
+
+                    foreach (DataRow row in DTroleid.Rows)
+                    {
+                        pizza.ID = Convert.ToInt32(row["id"].ToString());
+                        pizza.Naam = row["name"].ToString();
+                        pizza.Info = row["info"].ToString();
+                        pizza.Prijs = Convert.ToDouble(row["prijs"].ToString());
+                    }
+                    return pizza;
+                };
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : role id ophalen is mislukt");
+                return null;
+            }
+        }
         public bool UpdateUser(string id, string Naam, string Achternaam, string Email, string Wachtwoord, string Adres, string Telefoon, string Postcode, string Stad, string PizzaPunten)
         {
             bool succes = false;
@@ -410,6 +493,55 @@ namespace Project4_Ivan_Yarno.Classes
                 MessageBox.Show("DataBase : user update is mislukt");
                 return false;
             } 
+        }
+        public bool UpdatePizza(string id, string Naam, string Info, string Prijs)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = "UPDATE `pizzas` SET `name` = @name, `info` = @info, `prijs` = @prijs WHERE `pizzas`.`id` = @id";
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@name", Naam);
+                    command.Parameters.AddWithValue("@back_name", Info);
+                    command.Parameters.AddWithValue("@email", Prijs);
+                    int nrOfRowsAffected = command.ExecuteNonQuery();
+                    succes = (nrOfRowsAffected != 0);
+                }
+                return succes;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : user update is mislukt");
+                return false;
+            } 
+        }
+        public bool InsertPizza(string Naam, string Info, string Prijs)
+        {
+            bool succes = false;
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(conn))
+                {
+                    con.Open();
+                    MySqlCommand command = con.CreateCommand();
+                    command.CommandText = "INSERT INTO `pizzas` (`naam`, `info`, `prijs`) VALUES (@name,@info,@prijs);";
+                    command.Parameters.AddWithValue("@name", Naam);
+                    command.Parameters.AddWithValue("@info", Info);
+                    command.Parameters.AddWithValue("@prijs", Prijs);
+                    int nrOfRowsAffected = command.ExecuteNonQuery();
+                    succes = (nrOfRowsAffected != 0);
+                }
+                return succes;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("DataBase : pizza insert is mislukt");
+                return false;
+            }
         }
         public bool InsertUser(string Naam, string Achternaam, string Email, string Wachtwoord, string Adres, string Telefoon, string Postcode, string Stad, string PizzaPunten)
         {

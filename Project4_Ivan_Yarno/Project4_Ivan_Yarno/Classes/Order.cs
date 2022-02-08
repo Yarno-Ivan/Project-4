@@ -9,8 +9,9 @@ namespace Project4_Ivan_Yarno.Classes
     public class Order
     {
         private int id;
-        private string klantid;
-        private string totaalprijs;
+        private string naam;
+        private string adres;
+        private string email;
         private string status;
             
         public string Status
@@ -18,16 +19,20 @@ namespace Project4_Ivan_Yarno.Classes
             get { return status; }
             set { status = value; }
         }
-
-        public string KlantID
+        public string Naam
         {
-            get { return klantid; }
-            set { klantid = value; }
+            get { return naam; }
+            set { naam = value; }
         }
-        public string TotaalPrijs
+        public string Adres
         {
-            get { return totaalprijs; }
-            set { totaalprijs = value; }
+            get { return adres; }
+            set { adres = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
 
         public int ID

@@ -21,9 +21,9 @@ namespace Project4_Ivan_Yarno
     /// </summary>
     public partial class NavigatieMenu : Window
     {
-        private string rolid;
+        private int rolid;
 
-        public NavigatieMenu(string rolid)
+        public NavigatieMenu(int rolid)
         {
             InitializeComponent();
             this.rolid = rolid;
@@ -39,7 +39,7 @@ namespace Project4_Ivan_Yarno
             BtBeheerIngredienten.Visibility = Visibility.Hidden;
             switch (rolid)
             {
-                case "2":
+                case 2:
                     BtBestellingen.Visibility = Visibility.Visible;
                     BtBezorging.Visibility = Visibility.Visible;
                     BtBeheerPizzas.Visibility = Visibility.Hidden;
@@ -47,7 +47,7 @@ namespace Project4_Ivan_Yarno
                     BtBeheerKlant.Visibility = Visibility.Hidden;
                     BtBeheerIngredienten.Visibility = Visibility.Hidden;
                     break;
-                case "3":
+                case 3:
                     BtBestellingen.Visibility = Visibility.Visible;
                     BtBezorging.Visibility = Visibility.Hidden;
                     BtBeheerPizzas.Visibility = Visibility.Hidden;
@@ -55,7 +55,7 @@ namespace Project4_Ivan_Yarno
                     BtBeheerKlant.Visibility = Visibility.Hidden;
                     BtBeheerIngredienten.Visibility = Visibility.Hidden;
                     break;
-                case "4":
+                case 4:
                     BtBestellingen.Visibility = Visibility.Hidden;
                     BtBezorging.Visibility = Visibility.Visible;
                     BtBeheerPizzas.Visibility = Visibility.Hidden;
@@ -63,7 +63,7 @@ namespace Project4_Ivan_Yarno
                     BtBeheerKlant.Visibility = Visibility.Hidden;
                     BtBeheerIngredienten.Visibility = Visibility.Hidden;
                     break;
-                case "5":
+                case 5:
                     BtBestellingen.Visibility = Visibility.Visible;
                     BtBezorging.Visibility = Visibility.Visible;
                     BtBeheerPizzas.Visibility = Visibility.Visible;
@@ -71,7 +71,7 @@ namespace Project4_Ivan_Yarno
                     BtBeheerKlant.Visibility = Visibility.Visible;
                     BtBeheerIngredienten.Visibility = Visibility.Visible;
                     break;
-                case "999":
+                case 999:
                     BtBestellingen.Visibility = Visibility.Visible;
                     BtBezorging.Visibility = Visibility.Visible;
                     BtBeheerPizzas.Visibility = Visibility.Visible;
@@ -84,16 +84,14 @@ namespace Project4_Ivan_Yarno
 
         private void BtBestellingen_Click(object sender, RoutedEventArgs e)
         {
-            Bereiding bereiding = new Bereiding();
+            Bereiding bereiding = new Bereiding(rolid);
             bereiding.Show();
             this.Close();
         }
 
         private void BtBezorging_Click(object sender, RoutedEventArgs e)
         {
-            Bezorging bezorging = new Bezorging();
-            bezorging.Show();
-            this.Close();
+
         }
 
         private void BtBeheerIngredienten_Click(object sender, RoutedEventArgs e)
@@ -103,14 +101,21 @@ namespace Project4_Ivan_Yarno
 
         private void BtBeheerKlant_Click(object sender, RoutedEventArgs e)
         {
-            BeheerKlanten win = new BeheerKlanten();
+            BeheerKlanten win = new BeheerKlanten(rolid);
             win.Show();
             this.Close();
         }
 
         private void BtBeheerPersoneel_Click(object sender, RoutedEventArgs e)
         {
-            BeheerPersoneel win = new BeheerPersoneel();
+            BeheerPersoneel win = new BeheerPersoneel(rolid);
+            win.Show();
+            this.Close();
+        }
+
+        private void BtPizzas_Click(object sender, RoutedEventArgs e)
+        {
+            BeheerPizza win = new BeheerPizza(rolid);
             win.Show();
             this.Close();
         }

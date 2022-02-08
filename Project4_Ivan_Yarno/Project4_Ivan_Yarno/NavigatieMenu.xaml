@@ -41,7 +41,7 @@
         <Button x:Name="BtBeheerPersoneel" Grid.Column="4" Grid.Row="4" FontSize="25" Click="BtBeheerPersoneel_Click">
             <TextBlock>Personeel<LineBreak/>gegevens</TextBlock>
         </Button>
-        <Button x:Name="BtBeheerPizzas" Grid.Column="6" Grid.Row="4" FontSize="25">
+        <Button x:Name="BtBeheerPizzas" Grid.Column="6" Grid.Row="4" FontSize="25" Click="BtPizzas_Click">
             <TextBlock TextAlignment="Center">Pizza's<LineBreak/>Beheren</TextBlock>
         </Button>
     </Grid>

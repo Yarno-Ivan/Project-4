@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project4_Ivan_Yarno.Classes
 {
-    class Pizza
+    public class Pizza
     {
         private int id;
         private string naam;

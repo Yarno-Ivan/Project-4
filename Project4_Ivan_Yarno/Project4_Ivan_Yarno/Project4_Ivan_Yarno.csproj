@@ -128,11 +128,17 @@
     <Compile Include="CreateMedewerker.xaml.cs">
       <DependentUpon>CreateMedewerker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreatePizza.xaml.cs">
+      <DependentUpon>CreatePizza.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditKlanten.xaml.cs">
       <DependentUpon>EditKlanten.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditMedewerker.xaml.cs">
       <DependentUpon>EditMedewerker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditPizza.xaml.cs">
+      <DependentUpon>EditPizza.xaml</DependentUpon>
     </Compile>
     <Compile Include="NavigatieMenu.xaml.cs">
       <DependentUpon>NavigatieMenu.xaml</DependentUpon>
@@ -168,11 +174,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreatePizza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditKlanten.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditMedewerker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditPizza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,6 +246,9 @@
     <Resource Include="pizza2.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="back.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
