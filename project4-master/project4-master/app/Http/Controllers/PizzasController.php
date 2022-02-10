@@ -40,11 +40,17 @@ class PizzasController extends Controller
      */
     public function store(Request $request, $bestellingid , $pizzaid)
     {
-        $bestelling = Bestellingen::find($bestellingid);
-        $pizza = Pizzas::find($pizzaid);
-        //$request->session()->flash('success');
-        Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
-        return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
+        try {
+
+            $bestelling = Bestellingen::find($bestellingid);
+            $pizza = Pizzas::find($pizzaid);
+            Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
+            return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);          
+        } 
+        catch (\Exception $e) {
+            $request->session()->flash('error');
+            return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
+        }
     }
 
     /**

@@ -83,6 +83,7 @@
             <span>Totaal</span>
             <span>€ {{$bestelling->totalPrice()}}</span>
           </div>
+          
           <button class="bg-indigo-600 font-semibold py-3 text-sm text-white uppercase w-full">Betalen</button>
         </div>
       </div>
