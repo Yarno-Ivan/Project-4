@@ -47,7 +47,7 @@
               <br>  
               <span class=" text-sm">{{$pizza->naam}}</span>  <!-- Naam pizza -->
               <br>
-              <form action="{{ route('guests.destroy', $bestelling->id) }}" method="POST">
+              <form action="{{ route('guests.destroy', ['bestellingid' => $bestelling->id, 'pizzaid' => $pizza->id]) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Verwijder</button>
@@ -81,8 +81,9 @@
         <div class="border-t mt-8">
           <div class="flex font-semibold justify-between py-6 text-sm ">
             <span>Totaal</span>
-            <span>€{{$bestelling->totalPrice()}}</span>
+            <span>€ {{$bestelling->totalPrice()}}</span>
           </div>
+          
           <button class="bg-indigo-600 font-semibold py-3 text-sm text-white uppercase w-full">Betalen</button>
         </div>
       </div>
