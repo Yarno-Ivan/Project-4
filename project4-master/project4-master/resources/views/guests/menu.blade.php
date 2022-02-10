@@ -61,8 +61,8 @@
 <br>
 <br>
 @endforeach
-@if (Session::get('error'))
-<script>alert("Je kan niet meer pizzas toevoegen :)")</script>
+@if (Session::get('success'))
+<script>alert("Pizza toegevoegd aan het winkelmandje")</script>
 @endif
 </body>
 </html>
