@@ -40,17 +40,11 @@ class PizzasController extends Controller
      */
     public function store(Request $request, $bestellingid , $pizzaid)
     {
-        try {
-
-            $bestelling = Bestellingen::find($bestellingid);
-            $pizza = Pizzas::find($pizzaid);
-            Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
-            return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);          
-        } 
-        catch (\Exception $e) {
-            $request->session()->flash('error');
-            return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
-        }
+        $bestelling = Bestellingen::find($bestellingid);
+        $pizza = Pizzas::find($pizzaid);
+        //$request->session()->flash('success');
+        Bestellingen::find($bestellingid)->Pizzas()->attach($pizzaid);
+        return redirect()->route('guests.menu',['bestellingen' => $bestelling, 'pizzas' => Pizzas::all()]);
     }
 
     /**
@@ -95,10 +89,10 @@ class PizzasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($bestelling_id, $pizzas_id)
+    public function destroy($bestelling_id)
     {
         $bestelling = Bestellingen::find($bestelling_id);
-        $bestelling->Pizzas()->detach($pizzas_id);
+        $bestelling->Pizzas()->detach();
         return view("guests.betalen", ['bestelling'=>$bestelling]); 
     }
 }
