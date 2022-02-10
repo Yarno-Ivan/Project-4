@@ -89,10 +89,10 @@ class PizzasController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($bestelling_id)
+    public function destroy($bestelling_id, $pizzas_id)
     {
         $bestelling = Bestellingen::find($bestelling_id);
-        $bestelling->Pizzas()->detach();
+        $bestelling->Pizzas()->detach($pizzas_id);
         return view("guests.betalen", ['bestelling'=>$bestelling]); 
     }
 }
